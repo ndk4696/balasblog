@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bala's Blog</title>
+    <style>
+        body {
+            background-color: #EAEAEA;
+            color: #1A1A1A;
+            font-family: 'Sofia Pro Soft', sans-serif;
+            margin: 80px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 0.24px;
+            text-align: center;
+            width: 100%;
+            outline: none;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 150px;
+            justify-content: center;
+        }
+
+        .animation video {
+            width: 345px;
+            height: 318px;
+            border-radius: 8px;
+            object-fit: cover;
+            outline: none;
+        }
+
+        .text-content h1 {
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 120%;
+            color: #1A1A1A;
+            outline: none;
+            text-align: center;
+        }
+
+        .text-content p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin-top: 20px;
+            text-align: center;
+            outline: none;
+        }
+
+        .scroll-down img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            margin-top: 40px;
+            outline: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                margin: 40px;
+            }
+
+            .content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header, .text-content h1, .text-content p, .animation video, .scroll-down img {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        /* Focus states for accessibility */
+        .header:focus, 
+        .animation video:focus, 
+        .text-content h1:focus, 
+        .text-content p:focus, 
+        .scroll-down img:focus {
+            outline: 2px solid #1A1A1A;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" tabindex="0" aria-label="Site title: NANDURI BALA SUBRAHMANYAM">NANDURI BALA SUBRAHMANYAM</div>
+
+        <div class="content">
+            <div class="animation" tabindex="0" aria-label="Animation of Bala">
+                <video autoplay loop muted playsinline width="345" height="318">
+                    <source src="animation.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="text-content">
+                <h1 tabindex="0" aria-label="Hello! I am Bala, Following my passion for writing after retirement">Hello! I am Bala,<br />Following my passion for writing after retirement</h1>
+                <p tabindex="0" aria-label="Topics written about: Life, News, Music, and Movies">I write about Life • News • Music • Movies</p>
+            </div>
+        </div>
+
+        <div class="scroll-down" tabindex="0" aria-label="Scroll down arrow">
+            <img src="scroll-down.gif" alt="Scroll down" />
+        </div>
+    </div>
+</body>
+</html>
