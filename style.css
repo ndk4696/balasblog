@@ -14,7 +14,7 @@ a {
   align-items: center;
   height: 100vh;
   position: relative;
-  background: #eee;
+  background: #eaeaea;
   text-align: center;
   padding: 0 5em;
 }
@@ -36,7 +36,7 @@ a {
   width: 100%;
   height: 70px;
   z-index: 10;
-  background-color: #eee;
+  background-color: #eaeaea;
   border: solid #000;
   border-width: 2px 0;
   padding: 3px 0;
@@ -51,10 +51,10 @@ a {
   justify-content: center;
   align-items: center;
   flex: 1;
-  color: #000;
+  color: #1a1a1a;
   transition: all 0.5s ease;
   font-size: 0.8rem;
-  border: solid #000;
+  border: solid #1a1a1a;
   border-width: 1px 0;
 }
 .tab:hover {
@@ -88,7 +88,7 @@ font-weight: 800;
 .container {
   width: 100%;
   max-width: 1280px; /* Fixed container width */
-  padding: 0;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -100,13 +100,16 @@ font-weight: 800;
 /* Title Styling */
 .title {
   font-family: "sofia-pro-soft", sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.24px;
   color: #1a1a1a;
-  text-align: center;
+  text-align: left;
   width: 100%;
   padding:2em 0;
+  margin-left: 100px;
+
+
 }
 
 /* Content Layout */
@@ -122,14 +125,15 @@ font-weight: 800;
 /* Animation container */
 .animation-wrapper {
   flex: 1;
-  margin-left: 3em;
+  margin-left: auto;
 }
 .animation {
   width: 100%;
   padding-top: 80%;
+  padding-left: 2em 0;
   margin: 0 auto;
   background-size: cover;
-  background-position: center;
+  background-position: left;
   flex-shrink: 0;
   animation: playFrames 6s steps(4) forwards;
 }
@@ -160,7 +164,7 @@ font-weight: 800;
   flex-direction: column;
   justify-content: center;
   filter: blur(10px);
-  transition: filter 0.3s ease;
+  transition: filter 0.1s ease;
   flex: 1;
   text-align: left;
 }
@@ -177,7 +181,7 @@ font-weight: 800;
 
 .text-content h1 {
   font-family: "sofia-pro-soft", sans-serif;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
   color: #1a1a1a;
   line-height: 120%;
@@ -192,7 +196,7 @@ font-weight: 800;
   font-weight: 500;
   color: #1a1a1a;
   line-height: normal;
-  margin-top: 20px;
+  margin-top: 40px;
   white-space: normal;
 }
 
@@ -211,6 +215,7 @@ font-weight: 800;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-top: 40px;
   top: -5em; 
 }
 

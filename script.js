@@ -79,3 +79,9 @@ new StickyNavigation();
 setTimeout(() => {
 	document.getElementById('content-wrapper').classList.add('deblur');
 }, 3000);
+
+// Show scroll animation after Frame 4 finishes
+document.getElementById('animation').addEventListener('animationend', () => {
+	document.getElementById('scroll-container').style.opacity = 1;
+});
+
