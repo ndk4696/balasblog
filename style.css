@@ -22,12 +22,12 @@ a {
 
 .tabs h1,
 .h1 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
   margin: 0;
 }
 .tabs h3,
 .h3 {
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
   opacity: 0.6;
 }
 
@@ -76,11 +76,11 @@ a {
 @media (min-width: 800px) {
   .tabs h1,
   .slide h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 3vw, 3rem); /* Responsive font size */
   }
   .tabs h3,
   .slide h3 {
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Responsive font size */
   }
 
   .tab {
@@ -119,7 +119,6 @@ a {
 .text-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   filter: blur(10px);
   transition: filter 0.3s ease;
   flex: 1;
@@ -135,7 +134,7 @@ a {
 }
 .text-content h1 {
   font-family: "sofia-pro-soft", sans-serif;
-  font-size: 36px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
   font-weight: 700;
   color: #1a1a1a;
   line-height: 120%;
@@ -143,7 +142,7 @@ a {
 }
 .tagline {
   font-family: "nunito", sans-serif;
-  font-size: 24px;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
   font-weight: 500;
   color: #1a1a1a;
   margin-top: 40px;
@@ -162,7 +161,7 @@ a {
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 3em;
+  top: 7.5em;
   opacity: 0;
   transition: opacity 1s ease, transform 1s ease;
   transform: translateY(10px);
@@ -184,7 +183,7 @@ a {
 
 .scroll-message {
   font-family: "nunito", sans-serif;
-  font-size: 16px;
+  font-size: clamp(0.9rem, 2vw, 1.2rem); /* Responsive font size */
   font-weight: 500;
   color: #1a1a1a;
   margin: 0; /* 👈 Controls spacing above scroll icon */
@@ -208,18 +207,105 @@ a {
 
 /* RESPONSIVE */
 @media (max-width: 1000px) {
-  .scroll-down {
-    width: 80px;
-    height: 80px;
+  :root {
+    --mobile-top-margin: 40px;
+  }
+
+  .tabs {
+    padding: 0 1.5em;
+    justify-content: flex-start;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 0em;
+    padding-top: var(--mobile-top-margin);
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .animation-wrapper {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0 !important;  /* ⬅️ override any accidental spacing */
+    padding-bottom: 0 !important;
+  }
+
+  .animation {
+    width: 100%;
+    max-width: 90vw;
+    height: auto;
+    object-fit: contain;
+    margin: 0 !important;         /* ⬅️ kill default margin on image */
+    padding: 0;
+    display: block;
+  }
+
+  .text-content {
+    margin-top: 1em;
+    margin-bottom: var(--mobile-text-to-scroll-gap);
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 1em;
+    margin-top: 0 !important;     /* ⬅️ remove top margin to kill gap */
+    padding-top: 0 !important;
+  }
+
+  .text-content h1 {
+    font-size: 8vw; /* BIG font for mobile readers */
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 5vw;
+    margin-top: 80px;
+    text-align: center;
+    white-space: nowrap;      /* 👈 prevent line breaks */
+    overflow: hidden;          /* optional: hide overflow if needed */
+    text-overflow: ellipsis;   /* optional: show "..." if content gets cut */
   }
 
   .scroll-wrapper {
-    top: 2em;
+    position: bottom;
+    bottom: var(--mobile-scroll-bottom-gap);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1s ease, transform 1s ease;
+    pointer-events: none;
+  }
+
+  .scroll-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    margin-bottom: 100px;
   }
 
   .scroll-message {
-    font-size: 18px;
-    margin-top: 4px;
+    font-size: 4vw; /* Bigger message */
+    font-weight: 500;
+    margin-bottom: 0em;
+    font-weight: 100;
+  }
+
+  .scroll-down {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 3em;
   }
 }
-
