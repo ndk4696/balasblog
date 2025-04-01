@@ -22,12 +22,12 @@ a {
 
 .tabs h1,
 .h1 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin: 0;
 }
 .tabs h3,
 .h3 {
-  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   opacity: 0.6;
 }
 
@@ -76,11 +76,11 @@ a {
 @media (min-width: 800px) {
   .tabs h1,
   .slide h1 {
-    font-size: clamp(2rem, 3vw, 3rem); /* Responsive font size */
+    font-size: clamp(2rem, 3vw, 3rem);
   }
   .tabs h3,
   .slide h3 {
-    font-size: clamp(1rem, 2vw, 1.5rem); /* Responsive font size */
+    font-size: clamp(1rem, 2vw, 1.5rem);
   }
 
   .tab {
@@ -107,7 +107,7 @@ a {
 
 .animation {
   width: 100%;
-  max-width: 700px; /* ADJUST THIS FOR SIZE */
+  max-width: 700px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -134,7 +134,7 @@ a {
 }
 .text-content h1 {
   font-family: "sofia-pro-soft", sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 800;
   color: #1a1a1a;
   line-height: 120%;
@@ -142,7 +142,7 @@ a {
 }
 .tagline {
   font-family: "nunito", sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 500;
   color: #1a1a1a;
   margin-top: 40px;
@@ -183,7 +183,7 @@ a {
 
 .scroll-message {
   font-family: "nunito", sans-serif;
-  font-size: clamp(1.2rem, 1vw, 1rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.4rem);
   font-weight: 400;
   color: #1a1a1a;
   margin: 0;
@@ -206,6 +206,7 @@ a {
   cursor: pointer;
   animation: swingUpDown 1.5s ease-in-out infinite;
 }
+
 @keyframes swingUpDown {
   0%, 100% {
     transform: translateY(0);
@@ -246,7 +247,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0 !important;  /* ⬅️ override any accidental spacing */
+    margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
 
@@ -255,40 +256,39 @@ a {
     max-width: 90vw;
     height: auto;
     object-fit: contain;
-    margin: 0 !important;         /* ⬅️ kill default margin on image */
+    margin: 0 !important;
     padding: 0;
     display: block;
   }
 
   .text-content {
-    margin-top: 1em;
-    margin-bottom: var(--mobile-text-to-scroll-gap);
+    margin-top: 0 !important;
+    margin-bottom: 2em;
     text-align: center;
     align-items: center;
     width: 100%;
     max-width: 700px;
     padding: 0 1em;
-    margin-top: 0 !important;     /* ⬅️ remove top margin to kill gap */
-    padding-top: 0 !important;
   }
 
   .text-content h1 {
-    font-size: 8vw; /* BIG font for mobile readers */
+    font-size: clamp(2rem, 6vw, 3rem);
     line-height: 1.2;
   }
 
   .tagline {
-    font-size: 5vw;
-    margin-top: 80px;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    margin-top: 40px;
     text-align: center;
-    white-space: nowrap;      /* 👈 prevent line breaks */
-    overflow: hidden;          /* optional: hide overflow if needed */
-    text-overflow: ellipsis;   /* optional: show "..." if content gets cut */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .scroll-wrapper {
-    position: bottom;
-    bottom: var(--mobile-scroll-bottom-gap);
+    position: fixed !important;       /* override the base position */
+    bottom: 125px;
+    top: auto !important;             /* remove the top: 7.5em from base */
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -297,6 +297,7 @@ a {
     transform: translateY(10px);
     transition: opacity 1s ease, transform 1s ease;
     pointer-events: none;
+    z-index: 99;
   }
 
   .scroll-wrapper.visible {
@@ -306,15 +307,14 @@ a {
   }
 
   .scroll-message {
-    font-size: 4vw; /* Bigger message */
-    font-weight: 500;
-    margin-bottom: 1em;
-    font-weight: 100;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    margin-bottom: 0.5em;
+    font-weight: 400;
   }
 
   .scroll-down {
     width: 35px;
     height: 35px;
-    margin-bottom: 30em;
+    margin-top: 0.3em;
   }
 }
