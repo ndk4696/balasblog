@@ -4,27 +4,26 @@
     <meta charset="UTF-8" />
     <title>Bala's Blog</title>
     <link rel="stylesheet" href="./style.css" />
-    <!-- Typekit font link for both Sofia Pro Soft and Nunito -->
     <link rel="stylesheet" href="https://use.typekit.net/jdo3lpn.css" />
-    <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="./script.js"></script>
+    <script defer src="./script.js"></script>
   </head>
   <body>
-    <!-- Title -->
-
     <section class="tabs">
-
       <div class="content-wrapper" id="content-wrapper">
         <div class="animation-wrapper">
-          <div class="title">NANDURI BALA SUBRAHMANYAM</div>
-          <div class="animation" id="animation"></div>
+          <!-- Flicker-free animation as <img> -->
+          <img
+            id="animation"
+            class="animation"
+            src="/image/Frame1.png"
+            alt="Intro animation"
+          />
         </div>
         <div class="text-content">
           <h1>
             <span>Hello! I am Bala,</span>
             <span>Following my passion for writing after retirement</span>
-            
           </h1>
           <div class="tagline">
             I write about Life <span class="bullet">•</span> News
@@ -33,22 +32,22 @@
           </div>
         </div>
       </div>
-      <!-- Scroll Down Animation -->
-      <div class="scroll-down-container" id="scroll-container">
-        <img
-          src="/image/scroll_animation.gif"
-          alt="Scroll down animation"
-          class="scroll-down"
-        />
+      <div class="scroll-wrapper" id="scroll-container">
+        <div class="scroll-message-wrapper">
+          <p class="scroll-message">Scroll down to read articles</p>
+        </div>
+        <div class="scroll-icon-wrapper">
+          <img
+            src="/image/scroll_animation.gif"
+            alt="Scroll down animation"
+            class="scroll-down"
+          />
+        </div>
       </div>
-      <!--<div class="tabs-container">
-        <a class="tab" href="#home">home</a>
-        <a class="tab" href="#articles">articles</a>
-        <span class="tab-slider"></span>
-      </div>-->
+      
+      
     </section>
 
-    <!-- Main -->
     <main class="main">
       <section class="slide" id="tab-home">
         <h1>home</h1>
