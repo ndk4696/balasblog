@@ -135,7 +135,7 @@ a {
 .text-content h1 {
   font-family: "sofia-pro-soft", sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
-  font-weight: 700;
+  font-weight: 800;
   color: #1a1a1a;
   line-height: 120%;
   margin: 0;
@@ -183,12 +183,13 @@ a {
 
 .scroll-message {
   font-family: "nunito", sans-serif;
-  font-size: clamp(0.9rem, 2vw, 1.2rem); /* Responsive font size */
-  font-weight: 500;
+  font-size: clamp(1.2rem, 1vw, 1rem);
+  font-weight: 400;
   color: #1a1a1a;
-  margin: 0; /* 👈 Controls spacing above scroll icon */
+  margin: 0;
   padding: 0;
   text-align: center;
+  animation: swingUpDown 1.5s ease-in-out infinite;
 }
 
 /* Scroll icon */
@@ -196,13 +197,22 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0;
+  margin-top: 1em;
 }
 
 .scroll-down {
-  width: 123px;
-  height: 123px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
+  animation: swingUpDown 1.5s ease-in-out infinite;
+}
+@keyframes swingUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* RESPONSIVE */
@@ -293,19 +303,18 @@ a {
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
-    margin-bottom: 100px;
   }
 
   .scroll-message {
     font-size: 4vw; /* Bigger message */
     font-weight: 500;
-    margin-bottom: 0em;
+    margin-bottom: 1em;
     font-weight: 100;
   }
 
   .scroll-down {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15em;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 30em;
   }
 }
