@@ -17,7 +17,7 @@ a {
   position: relative;
   background: #eaeaea;
   text-align: center;
-  padding: 0 5em;
+  padding: 0 1em;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -84,7 +84,6 @@ a {
   max-width: 1280px;
   box-sizing: border-box;
   gap: 2em;
-  padding: 0 20px;
   position: relative;
   height: 70vh;
 }
@@ -228,25 +227,25 @@ a {
 /* Tablets & below */
 @media (max-width: 1072px) {
   .tabs {
-    padding: 0 2em;
-    padding-top: 0;
-    justify-content: center;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .content-wrapper {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    padding: 2em 1em;
-    gap: 1.5em;
+    justify-content: space-between; /* key update */
+    height: 100vh; /* 100vh minus top margin and space for scroll icon */
+    margin-top: 5vh; /* top margin */
+    padding: 1em 1em;
   }
 
   .animation-wrapper {
-    width: 100%;
-    justify-content: center;
     margin: 0;
     padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     transform: translateX(60px);
   }
 
@@ -260,8 +259,9 @@ a {
   .text-content {
     text-align: center;
     align-items: center;
-    margin: 0;
-    padding: 0 1em;
+    padding: 0;
+    filter: blur(10px);
+    transition: filter 0.3s ease;
   }
 
   .text-content h1 {
@@ -270,7 +270,7 @@ a {
   }
 
   .tagline {
-    font-size: clamp(1rem, 4vw, 8rem);
+    font-size: clamp(1rem, 4vw, 6rem);
     margin-top: 20px;
     text-align: center;
   }
@@ -281,21 +281,17 @@ a {
   .content-wrapper {
     height: auto;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 1em;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    margin-top: 5vh;
+    justify-content: space-between;
+    padding: 1em 1em;
   }
 
   .text-content h1 {
     font-size: 24px;
-    padding: 0 1em;
-    white-space: normal;
   }
 
   .tagline {
     font-size: 18px;
-    padding: 0 1em;
     text-align: center;
   }
 
