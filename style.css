@@ -18,6 +18,8 @@ a {
   background: #eaeaea;
   text-align: center;
   padding: 0 5em;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .tabs h1,
@@ -63,7 +65,6 @@ a {
 }
 .tab:hover {
   font-weight: 800;
-  transition: all 0.5s ease;
 }
 .tab-slider {
   position: absolute;
@@ -71,21 +72,6 @@ a {
   width: 0;
   height: 6px;
   transition: left 0.3s ease;
-}
-
-@media (min-width: 800px) {
-  .tabs h1,
-  .slide h1 {
-    font-size: clamp(2rem, 3vw, 3rem);
-  }
-  .tabs h3,
-  .slide h3 {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-  }
-
-  .tab {
-    font-size: 1rem;
-  }
 }
 
 /* CONTENT AREA */
@@ -98,16 +84,23 @@ a {
   max-width: 1280px;
   box-sizing: border-box;
   gap: 2em;
+  padding: 0 20px;
+  position: relative;
+  height: 70vh;
 }
 
 .animation-wrapper {
   flex: 1;
   margin-left: auto;
+  margin-right: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .animation {
   width: 100%;
-  max-width: 700px;
+  max-width: clamp(300px, 40vw, 800px);
   height: auto;
   display: block;
   margin: 0 auto;
@@ -123,6 +116,7 @@ a {
   transition: filter 0.3s ease;
   flex: 1;
   text-align: left;
+  word-break: break-word;
 }
 
 .content-wrapper.deblur .text-content {
@@ -130,22 +124,33 @@ a {
 }
 
 .text-content h1 span {
-  display: block;
+  display: inline;
+  white-space: normal;
 }
+
 .text-content h1 {
   font-family: "sofia-pro-soft", sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #1a1a1a;
-  line-height: 120%;
+  line-height: 1.3;
   margin: 0;
+  word-break: break-word;
+  max-width: 100%;
 }
+
 .tagline {
   font-family: "nunito", sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   font-weight: 500;
   color: #1a1a1a;
   margin-top: 40px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
+  line-height: 1.4;
+  max-width: 100%;
 }
 .tagline .bullet {
   font-size: 12px;
@@ -160,12 +165,16 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: 7.5em;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   opacity: 0;
   transition: opacity 1s ease, transform 1s ease;
   transform: translateY(10px);
   pointer-events: none;
+  z-index: 10;
 }
 
 .scroll-wrapper.visible {
@@ -174,7 +183,6 @@ a {
   pointer-events: all;
 }
 
-/* Scroll message */
 .scroll-message-wrapper {
   display: flex;
   justify-content: center;
@@ -192,7 +200,6 @@ a {
   animation: swingUpDown 1.5s ease-in-out infinite;
 }
 
-/* Scroll icon */
 .scroll-icon-wrapper {
   display: flex;
   justify-content: center;
@@ -216,105 +223,101 @@ a {
   }
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  :root {
-    --mobile-top-margin: 40px;
-  }
+/* ===== RESPONSIVE STYLING ===== */
 
+/* Tablets & below */
+@media (max-width: 1072px) {
   .tabs {
-    padding: 0 1.5em;
-    justify-content: flex-start;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+    padding: 0 2em;
+    padding-top: 0;
+    justify-content: center;
   }
 
   .content-wrapper {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    gap: 0em;
-    padding-top: var(--mobile-top-margin);
-    height: 100%;
-    box-sizing: border-box;
+    height: auto;
+    padding: 2em 1em;
+    gap: 1.5em;
   }
 
   .animation-wrapper {
     width: 100%;
-    max-width: 100%;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    margin: 0;
+    padding: 0;
+    transform: translateX(60px);
   }
 
   .animation {
-    width: 100%;
+    width: auto;
     max-width: 90vw;
-    height: auto;
+    max-height: 40vh;
     object-fit: contain;
-    margin: 0 !important;
-    padding: 0;
-    display: block;
   }
 
   .text-content {
-    margin-top: 0 !important;
-    margin-bottom: 2em;
     text-align: center;
     align-items: center;
-    width: 100%;
-    max-width: 700px;
+    margin: 0;
     padding: 0 1em;
   }
 
   .text-content h1 {
-    font-size: clamp(2rem, 6vw, 3rem);
-    line-height: 1.2;
+    font-size: clamp(1.8rem, 5vw, 12rem);
+    line-height: 1.4;
   }
 
   .tagline {
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-    margin-top: 40px;
+    font-size: clamp(1rem, 4vw, 8rem);
+    margin-top: 20px;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .content-wrapper {
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+  .text-content h1 {
+    font-size: 24px;
+    padding: 0 1em;
+    white-space: normal;
+  }
+
+  .tagline {
+    font-size: 18px;
+    padding: 0 1em;
+    text-align: center;
+  }
+
+  .animation {
+    max-height: 30vh;
   }
 
   .scroll-wrapper {
-    position: fixed !important;       /* override the base position */
-    bottom: 125px;
-    top: auto !important;             /* remove the top: 7.5em from base */
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 1s ease, transform 1s ease;
-    pointer-events: none;
-    z-index: 99;
-  }
-
-  .scroll-wrapper.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
-  }
-
-  .scroll-message {
-    font-size: clamp(1rem, 3vw, 1.4rem);
-    margin-bottom: 0.5em;
-    font-weight: 400;
+    bottom: 20px;
   }
 
   .scroll-down {
-    width: 35px;
-    height: 35px;
-    margin-top: 0.3em;
+    width: 30px;
+    height: 30px;
   }
+
+  .scroll-message {
+    font-size: 1.2rem;
+  }
+}
+
+/* Hide .main on landing */
+.main {
+  display: none;
 }

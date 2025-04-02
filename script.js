@@ -133,4 +133,3 @@ class StickyNavigation {
   };
   
   preloadImages(framePaths, playAnimation);
-  
