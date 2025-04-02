@@ -101,7 +101,7 @@ function handleSmallHeightLandscape() {
 	  contentWrapper.style.marginTop = '1em';
 	  
 	  // Animation
-	  animationWrapper.style.transform = 'translateX(30px)';
+	  animationWrapper.style.transform = 'translateX(10px)';
 	  animationWrapper.style.flex = '0.6';
 	  animationWrapper.style.margin = '0';
 	  animationWrapper.style.padding = '0';
