@@ -1,4 +1,4 @@
-// --- Flicker-Free Image Animation ---
+// Frame Animation
 const framePaths = [
 	"/image/Frame1.png",
 	"/image/Frame2.png",
@@ -29,7 +29,7 @@ const framePaths = [
 	const contentWrapper = document.getElementById("content-wrapper");
 	const scrollWrapper = document.getElementById("scroll-container");
   
-	imgEl.style.opacity = 1;
+	imgEl.style.opacity = '1';
   
 	let frame = 0;
 	const totalFrames = framePaths.length;
@@ -56,9 +56,10 @@ const framePaths = [
 	}, frameDuration);
   };
   
+  // Start the animation sequence
   preloadImages(framePaths, playAnimation);
-
-// Add this to your script.js file
+  
+  // Handle small height landscape mode
 
 // Function to handle small height landscape mode
 function handleSmallHeightLandscape() {
@@ -170,11 +171,22 @@ function handleSmallHeightLandscape() {
 	}
   }
   
-  // Run on page load
-  document.addEventListener('DOMContentLoaded', handleSmallHeightLandscape);
-  
-  // Run when window resizes or orientation changes
-  window.addEventListener('resize', handleSmallHeightLandscape);
-  window.addEventListener('orientationchange', handleSmallHeightLandscape);
-  
+   // Run when window resizes or orientation changes
+   let ticking = false;
+   window.addEventListener('scroll', () => {
+	 if (!ticking) {
+	   window.requestAnimationFrame(() => {
+		 const scrollY = window.scrollY;
+		 const viewportHeight = window.innerHeight;
+		 const progress = Math.min(scrollY / viewportHeight, 1);
+		 const translateY = (1 - progress) * 100;
+		 const latestPosts = document.querySelector('.latest-posts');
+		 if (latestPosts) {
+		   latestPosts.style.transform = `translateY(${translateY}%)`;
+		 }
+		 ticking = false;
+	   });
+	   ticking = true;
+	 }
+   });
   

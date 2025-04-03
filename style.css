@@ -1,11 +1,43 @@
 /* STRUCTURE RESET */
 body {
-  margin: 0px;
+  margin: 0;
+  
 }
 
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 20px;
+  border: 5px solid #1a1a1a
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+.tabs {
+  position: fixed; /* Pin the section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  z-index: 1;    /* Behind the scrolling content */
+}
 
 /* MAIN SECTIONS */
-
 /* CONTENT AREA */
 .content-wrapper {
   display: flex;
@@ -17,22 +49,21 @@ body {
   box-sizing: border-box;
   gap: 2.5em;
   position: relative;
-  height: 70vh;
+  height: 100vh;
 }
 
 .animation-wrapper {
   flex: 1;
   margin-left: auto;
-  margin-right: -50px;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .animation {
-  width: 100%;
-  max-width: clamp(300px, 40vw, 800px);
-  height: auto;
+  max-height: 50vh;
+  width: auto;
   display: block;
   margin: 0 auto;
   opacity: 0;
@@ -83,6 +114,7 @@ body {
   line-height: 1.4;
   max-width: 100%;
 }
+
 .tagline .bullet {
   font-size: 12px;
   vertical-align: middle;
@@ -122,11 +154,10 @@ body {
 
 .scroll-message {
   font-family: "nunito", sans-serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.4rem);
-  font-weight: 500;
-  color: #1a1a1a;
-  margin: 0;
-  padding: 0;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 800;
+  color: #B0B0B0;
+  margin-bottom: 10px;
   text-align: center;
   animation: swingUpDown 1.5s ease-in-out infinite;
 }
@@ -153,12 +184,115 @@ body {
     transform: translateY(-10px);
   }
 }
-@media (min-width: 1073px) {
-  body {
-    margin: 80px;
-  }
+
+/* Fixed Landing Section */
+.fixed-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #eaeaea;
+  z-index: 1;
 }
-/* ===== RESPONSIVE STYLING ===== */
+
+/* Content Container */
+.content-container {
+  position: relative;
+  z-index: 1;        /* This will appear above the pinned landing */
+  margin-top: 0; /* Start scrolling after the landing section */
+}
+
+/* Spacer */
+.spacer {
+  height: 100vh;
+}
+
+/* Latest Posts Section */
+.latest-posts {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #1a1a1a;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  z-index: 2;
+  transform: translateY(100%);
+  
+}
+
+.latest-posts.slide-up-visible {
+  transform: translateY(0);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.latest-posts h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.post-card {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.post-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.post-card p {
+  color: #d1d5db;
+}
+
+
+
+/* More Content Section */
+.more-content {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #2a2a2a;
+  position: relative;
+  z-index: 2;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.content-card {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.content-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.content-card p {
+  color: #d1d5db;
+}
 
 /* Tablets & below */
 @media (min-width: 601px) and (max-width: 1072px) {
@@ -246,15 +380,23 @@ body {
     width: 20px;
     height: 20px;
   }
-}
 
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .latest-posts h2,
+  .more-content h2 {
+    font-size: 2rem;
+  }
+}
 
 /* Phones */
 @media (max-width: 600px) {
   .tabs {
     padding: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .content-wrapper {
@@ -264,7 +406,7 @@ body {
     align-items: center;
     min-height: 70vh;
     height: auto;
-    padding-bottom: 4em; /* room for scroll icon */
+    padding-bottom: 4em;
     padding: 0 1em;
     text-align: center;
   }
@@ -319,7 +461,7 @@ body {
     width: 100%;
     padding-bottom: 1.5em;
     margin-top: 4em;
-    position:static;
+    position: static;
   }
 
   .scroll-message {
@@ -330,7 +472,19 @@ body {
   .scroll-down {
     width: 15px;
     height: 15px;
-    
   }
-  
+
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .latest-posts h2,
+  .more-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .posts-grid,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
 }
