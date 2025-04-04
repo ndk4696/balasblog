@@ -6,11 +6,13 @@
     <title>Bala's Blog</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/jdo3lpn.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/jdo3lpn.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script defer src="./script.js"></script>
   </head>
   <body>
-    <section class="tabs">
+    <!-- Landing Section - Fixed -->
+    <section class="tabs fixed-section">
       <div class="content-wrapper" id="content-wrapper">
         <div class="animation-wrapper">
           <img
@@ -41,5 +43,175 @@
         </div>
       </div>
     </section>
+     <!-- Content Container -->
+     <div class="content-container">
+      <!-- Spacer to allow scrolling -->
+      <div class="spacer"></div>
+
+      <!-- Latest Posts Section -->
+      <section class="latest-posts" id="latest-posts">
+        <nav class="nav-bar">
+          <div class="nav-title">
+            NANDURI BALA SUBRAHMANYAM
+          </div>
+          <!-- Desktop nav links -->
+  <div class="nav-links">
+    <a href="#" class="nav-link home">Home</a>
+    <a href="#" class="nav-link">Articles</a>
+  </div>
+  <!-- Hamburger button (only visible on mobile) -->
+  <button class="hamburger" aria-label="Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <!-- Mobile dropdown menu -->
+  <div class="mobile-menu">
+    <a href="#" class="mobile-link home">Home</a>
+    <a href="#" class="mobile-link">Articles</a>
+  </div>
+        </nav>
+        <section class="post-section">
+          <!-- Left column / Sidebar -->
+          <div class="post-sidebar">
+            <p>Latest post</p>
+          </div>
+          
+          <!-- Right column / Post content -->
+          <div class="post-content">
+            <article class="post">
+              <!-- Post Title -->
+              <h2 class="post-title">ఒక ఆదివారం మధ్యాహ్నం</h2>
+              
+              <!-- Meta Info -->
+              <div class="post-meta">March 3, 2025
+                <span class="bullet">•</span>LIFE  
+                <span class="bullet">•</span>2min read
+              </div>
+              
+              <!-- Post Body -->
+              <div class="post-body">
+                <p>గత రెండు వారాల నుంచీ ఒకటే పని, టూర్లు. సరైన నిద్ర లేదు. ఈ ఆఫీస్ పనికి అంతులేనట్లుంది. ఎలాగయినా ఈ ఆదివారం మొత్తం పడుకుని కమ్మగా నిద్రపోవాలి. కానీ ఏంచేయను ? శనివారం రాత్రి ఫ్లయిట్ తప్పిపోవడం తో ఆదివారం ప్రొద్దుట 10 గంటల ఫ్లయిట్ ఎక్కి, ఒంటి గంట కల్లా ఇంట్లో వున్నాను. ఇంట్లో శ్రీమతి తను షాపింగ్ కి వెడుతున్నానని సాయంత్రం అయ్యే దాకా రానని ముందే చెప్పేసింది. ఇంట్లో డిగ్రీ చేస్తున్న పుత్రరత్నం ఫ్రెండ్స్ తో సినిమాకి పోతున్నానని చెప్పేశాడు. అందుకే ఇంటికి వస్తున్నప్పుడు ఎయిర్పోర్టు లోనే సుష్టు గా భోంచేసేశాను. ఇక ఇంటికి వెళ్ళగానే పరుపు మీద వాలి పోవడమే.</p>
+                
+                <p>ప్లాన్ ప్రకారం ఒంటిగంట కల్లా ఇంట్లో వున్నాను. ఒకటింపావు కల్లా బట్టలు మార్చుకుని, ఏసీ వేసుకుని మంచం మీద వాలాను. ఎంత కాలమైంది ఇలా ప్రశాంతం గా పడుకుని. ఇయర్ ఫోన్స్ పెట్టుకుని మొబైల్ లో నాకు ఇష్టమైన పాటలు పెట్టుకున్నాను. వింటూ అలా.. అలా నిద్రలోకి జారుకోవాలి అని ఆశ.</p>
+                
+                <!-- Add additional paragraphs as needed -->
+              </div>
+              
+              <!-- Post Buttons -->
+              <div class="post-buttons">
+                <button class="share-btn">Share</button>
+                <button class="comment-btn">Comment</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="popular-articles-section">
+          <div class="popular-container">
+            <!-- Left Column: Title -->
+            <div class="popular-left">
+              <h2>Popular articles</h2>
+            </div>
+            <!-- Right Column: Cards -->
+            <div class="popular-right">
+              <!-- Card 1 -->
+              <div class="article-card">
+                <img src="/image/PArticle_1.png" alt="Article Image" class="card-image" />
+                <div class="card-content">
+                  <!-- Text Wrapper -->
+                  <div class="card-body">
+                    <h3 class="card-title">ఇంద్రలుప్తకం</h3>
+                    <div class="card-meta">March 24, 2025
+                      <span class="bullet">•</span>Life
+                      <span class="bullet">•</span>2min read
+                    </div>
+                    <p class="card-text">
+                      రోజూలాగే ఆఫీస్ నించి వచ్చి ముఖం కడుక్కుందామని  వాష్ రూమ్ కి వెళ్ళాను. సబ్బు పట్టించిన తర్వాత ముఖం పెద్దగా...
+                    </p>
+                  </div>
+                  <!-- Button -->
+                  <button class="read-now-btn">Read Now</button>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="article-card">
+                <img src="/image/PArticle_2.png" alt="Article Image" class="card-image" />
+                <div class="card-content">
+                  <!-- Text Wrapper -->
+                  <div class="card-body">
+                    <h3 class="card-title">ట్రంప్ గారి పట్టాభిషేకమహోత్సవం </h3>
+                    <div class="card-meta">Jan 29, 2025<span class="bullet">•</span>NEWS<span class="bullet">•</span>5min read</div>
+                    <p class="card-text">
+                      అమెరికాని మళ్ళీ గ్రేట్ చేద్దామని కంకణం కట్టుకున్న ట్రంప్ గారి రెండో  పట్టాభిషేకం మొన్న జరిగింది  - "మా చెల్లికి...
+                    </p>
+                  </div>
+                  <!-- Button -->
+                  <button class="read-now-btn">Read Now</button>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="article-card">
+                <img src="/image/PArticle_3.png" alt="Article Image" class="card-image" />
+                <div class="card-content">
+                  <!-- Text Wrapper -->
+                  <div class="card-body">
+                    <h3 class="card-title">దృశ్యకావ్యం</h3>
+                    <div class="card-meta">Dec 11, 2024<span class="bullet">•</span>Music<span class="bullet">•</span>40sec read</div>
+                    <p class="card-text">
+                      మనుషులకి  నిజ  జీవితం కంటే నట జీవితం ఇస్టం. అందుకే నటించే వాళ్ళంటే ఇంకా ఇస్టం. నటనలో జీవించే...
+                    </p>
+                  </div>
+                  <!-- Button -->
+                  <button class="read-now-btn">Read Now</button>
+                </div>
+              </div>
+              <div class="view-all-container">
+                <button class="view-all-btn">View all articles</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Notification section-->
+        <section class="notify-section">
+          <div class="notify-container">
+            <!-- Left Column: Heading -->
+            <div class="notify-left">
+              <h2>Get notified</h2>
+            </div>
+            <!-- Right Column: Description & Form -->
+            <div class="notify-right">
+              <p>
+                I can send you an email whenever I upload a new article so that you can come back here and read it. 
+                Just share your email ID with me.
+              </p>
+              <div class="notify-form">
+                <input 
+                  type="email" 
+                  placeholder="Your email address" 
+                  class="notify-input"
+                />
+                <button class="notify-btn">Notify Me</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="final-section">
+          <div class="final-container">
+            <h2>Connect with me!</h2>
+            <p>Want me to write anything for you? You can send me an email at <a href="mailto:balasblog@gmail.com">balasblog@gmail.com</a></p>
+          </div>
+        </section>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            const hamburger = document.querySelector(".hamburger");
+            const mobileMenu = document.querySelector(".mobile-menu");
+            
+            hamburger.addEventListener("click", function() {
+              mobileMenu.classList.toggle("active");
+            });
+          });
+          </script>
+          
   </body>
 </html>

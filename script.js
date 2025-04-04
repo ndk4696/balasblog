@@ -172,6 +172,29 @@ function handleSmallHeightLandscape() {
   
   // Run on page load
   document.addEventListener('DOMContentLoaded', handleSmallHeightLandscape);
+  // Run on page load
+document.addEventListener('DOMContentLoaded', () => {
+	handleSmallHeightLandscape();
+	
+	// Intersection Observer for slide-up effect
+	const latestPosts = document.getElementById('latest-posts');
+	const observer = new IntersectionObserver(
+	  (entries) => {
+		entries.forEach((entry) => {
+		  if (entry.isIntersecting) {
+			entry.target.classList.add('slide-up-visible');
+		  }
+		});
+	  },
+	  {
+		threshold: 0.1,
+	  }
+	);
+  
+	if (latestPosts) {
+	  observer.observe(latestPosts);
+	}
+  });
   
   // Run when window resizes or orientation changes
   window.addEventListener('resize', handleSmallHeightLandscape);
