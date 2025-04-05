@@ -54,22 +54,20 @@
           <div class="nav-title">
             NANDURI BALA SUBRAHMANYAM
           </div>
-          <!-- Desktop nav links -->
-  <div class="nav-links">
-    <a href="#" class="nav-link home">Home</a>
-    <a href="#" class="nav-link">Articles</a>
-  </div>
-  <!-- Hamburger button (only visible on mobile) -->
-  <button class="hamburger" aria-label="Menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-  <!-- Mobile dropdown menu -->
-  <div class="mobile-menu">
-    <a href="#" class="mobile-link home">Home</a>
-    <a href="#" class="mobile-link">Articles</a>
-  </div>
+          <div class="nav-links">
+            <a href="#" class="nav-link home">Home</a>
+            <a href="#" class="nav-link">Articles</a>
+          </div>
+          <!-- Hamburger button (only visible on mobile) -->
+           <button class="hamburger" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>   
+          <!-- Mobile dropdown menu -->
+          <div class="mobile-menu">
+            <a href="#" class="mobile-link home">Home</a>
+            <a href="#" class="mobile-link">Articles</a>
+          </div> 
         </nav>
         <section class="post-section">
           <!-- Left column / Sidebar -->
@@ -208,10 +206,11 @@
             const mobileMenu = document.querySelector(".mobile-menu");
             
             hamburger.addEventListener("click", function() {
+              hamburger.classList.toggle("active");
               mobileMenu.classList.toggle("active");
             });
           });
-          </script>
+        </script>
           
   </body>
 </html>

@@ -199,5 +199,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // Run when window resizes or orientation changes
   window.addEventListener('resize', handleSmallHeightLandscape);
   window.addEventListener('orientationchange', handleSmallHeightLandscape);
-  
-  
