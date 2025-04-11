@@ -1,29 +1,31 @@
-/* STRUCTURE RESET */
+/* STRUCTURE RESET - removes the default margin of the browser */
 body {
   margin: 0;
 }
 
 /* Scrollbar Styles */
+/* Scroll bar background width on the right side*/
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 16px;
 }
-
+/* Background color of scroll bar */
 ::-webkit-scrollbar-track {
   background: #1a1a1a;
 }
-
+/* actual scrollbar settings */
 ::-webkit-scrollbar-thumb {
   background: #555;
-  border-radius: 6px;
-  border: 3px solid #1a1a1a;
+  border-radius: 8px;
+  border: 4px solid #1a1a1a;
 }
-
+/* actual scrollbar hover settings */
 ::-webkit-scrollbar-thumb:hover {
   background: #999;
 }
 
 /* Smooth scrolling */
-html {
+body {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -39,7 +41,7 @@ html {
   width: 100%;
   max-width: 1280px;
   box-sizing: border-box;
-  gap: 2.5em;
+  gap: clamp(1em, 2vw, 2.5em);
   position: relative;
   height: 100vh;
 }
@@ -71,6 +73,7 @@ html {
   flex: 1;
   text-align: left;
   word-break: break-word;
+  gap: 40px;
 }
 
 .content-wrapper.deblur .text-content {
@@ -98,10 +101,8 @@ html {
   font-size: clamp(1.2rem, 2.5vw, 1.4rem);
   font-weight: 800;
   color: #1a1a1a;
-  margin-top: 40px;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
+  white-space: nowrap;
+  overflow: hidden;
   text-align: left;
   line-height: 1.4;
   max-width: 100%;
@@ -147,7 +148,7 @@ html {
   font-family: "nunito", sans-serif;
   font-size: clamp(1.2rem, 2.5vw, 1.4rem);
   font-weight: 500;
-  color: #B0B0B0;
+  color: #999;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -183,31 +184,6 @@ html {
 }
 
 /*-------PARALLAX SCROLL----------*/
-/* SCROLL SECTION */
-.scroll-wrapper {
-  width: 100%;
-  max-width: 1280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 50px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-  transform: translateY(10px);
-  pointer-events: none;
-  z-index: 10;
-}
-
-.scroll-wrapper.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
 /*----------------------------------Navigation bar----------------------*/
 .nav-bar {
   display: flex;
@@ -217,7 +193,8 @@ html {
   background-color: #1a1a1a;  /* Match your latest posts section background */
   position: sticky;
   top: 0;
-  z-index: 3;              /* Ensure it stays above other content */
+  z-index: 5;              /* Ensure it stays above other content */
+
 }
 
 /* Title styling */
@@ -261,7 +238,6 @@ html {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #eaeaea;
   z-index: 1;
 }
 
@@ -269,12 +245,9 @@ html {
 .content-container {
   position: relative;
   z-index: 1;
+  margin-top: 100vh; /* pushes it below the hero visually */
 }
 
-/* Spacer */
-.spacer {
-  height: 100vh;
-}
 
 /* Latest Posts Section */
 .latest-posts {
@@ -286,7 +259,7 @@ html {
   margin-right: -50vw;
   min-height: 100vh;
   background-color: #1a1a1a;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0; 
   z-index: 2;
   padding: 0;
   overflow-x: hidden;
@@ -473,15 +446,15 @@ html {
 
 /* Card Image */
 .card-image {
-  width: 300px; /* Adjust image width */
-  height: 300px;
+  width: 35%;
+  aspect-ratio: 1; /* Keep it square */
   object-fit: cover;
-  flex-shrink: 0; 
+  
 }
 
 /* Card Content */
 .card-content {
-  padding: 2rem;
+  padding: clamp(0.8rem, 2vw, 2rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -513,7 +486,7 @@ html {
 
 /* Card Teaser Text */
 .card-text {
-  font-family: 'Sofia-pro-sift', sans-serif;  /* Adjust as needed */
+  font-family: 'Sofia-pro-soft', sans-serif;  /* Adjust as needed */
   font-size: 1rem;      /* Control paragraph size */
   font-weight: 400;
   color: #bbb;
@@ -627,7 +600,7 @@ html {
   font-size: clamp(1rem, 3vw, 1.5rem);        /* Paragraph font size */
   text-align: justify;     /* Justified text */
   margin-bottom: 2rem;
-  Margin-top:0;
+  margin-top:0;
   color: #CFCFCF;
   margin-left:0;
 }
@@ -818,7 +791,7 @@ body {
     font-size: (0.5rem, 2vw, 1.5rem)  !important ;
   }
   .nav-links {
-    font-size: (0.5rem, 2vw, 1.5rem);
+    font-size: clamp(0.5rem, 2vw, 1.5rem);
   }
   
   .post-section {
@@ -850,6 +823,7 @@ body {
   .popular-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     
   }
 
@@ -859,30 +833,39 @@ body {
   
   .article-card {
     flex-direction: row;
+    height:auto;
   }
   
-  .card-image {
-    width: 35%;
-    height: auto;
-  }
+ 
   
   .popular-left h2 {
     font-size: clamp(3rem, 4vw, 5rem);
   }
+
+  .popular-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: flex-start;
+  }
+
+  .article-card {
+    max-width: 100%;
+  }
   
   .card-title {
-    font-size: clamp(1.5rem, 3vw, 3rem);
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
     margin-bottom: 1rem;
   }
   
   .card-meta {
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(0.8rem, 1vw, 1rem);
     font-family: 'nunito', sans-serif;
     margin-bottom: 1rem;
   }
   
   .card-text {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-size: clamp(1.2rem, 1vw, 1.5rem);
   }
   
   .read-now-btn {
@@ -1088,7 +1071,7 @@ body {
   .mobile-menu a:hover {
     background-color: #FFD66B; /* Hover effect; change as desired */
     border-radius: 10px;
-    Color: #111;
+    color: #111;
   }
   
   .mobile-menu a:last-child {
@@ -1105,7 +1088,7 @@ body {
   }
   .post-section {
     flex-direction: column;
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
   }
 
   
@@ -1116,17 +1099,16 @@ body {
   }
   
   .post-title {
-    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
   }
   
   .post-body p {
-    font-size: clamp(1.3rem, 3vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    text-align: left;
   }
 
   .popular-articles-section{
-    padding:2rem 3rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    padding: 2rem 2rem;
   }
   .popular-container {
     flex-direction: column;
@@ -1135,12 +1117,9 @@ body {
   
   .article-card {
     flex-direction: column;
+
   }
   
-  .card-image {
-    width: 100%;
-    height: auto;
-  }
   
   .popular-left h2 {
     font-size: 1.5rem;
@@ -1170,7 +1149,7 @@ body {
   }
   
   .notify-section{
-    padding: 3rem 3rem;
+    padding: 2rem 2rem;
   }
   .notify-container {
     flex-direction: column;
@@ -1196,7 +1175,7 @@ body {
   }
 
   .final-section{
-    padding:3rem 3rem;
+    padding:2rem 2rem;
 
   }
 }

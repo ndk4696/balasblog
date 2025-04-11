@@ -170,9 +170,7 @@ function handleSmallHeightLandscape() {
 	}
   }
   
-  // Run on page load
-  document.addEventListener('DOMContentLoaded', handleSmallHeightLandscape);
-  // Run on page load
+   // Run on page load
 document.addEventListener('DOMContentLoaded', () => {
 	handleSmallHeightLandscape();
 	
@@ -199,3 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Run when window resizes or orientation changes
   window.addEventListener('resize', handleSmallHeightLandscape);
   window.addEventListener('orientationchange', handleSmallHeightLandscape);
+
+  
+  
