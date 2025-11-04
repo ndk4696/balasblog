@@ -3,7 +3,7 @@ title: IITs and Our Media
 date: 2025-01-30T05:51:46.993Z
 genre: "Life "
 readTime: "5 min "
-thumbnail: /images/a2.png
+thumbnail: /images/iit-baba-says-i-am-bhagwan-.jpg
 ---
 IITs and Our Media
 
