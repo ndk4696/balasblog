@@ -3,7 +3,7 @@ title: "A Boss is a Boss "
 date: 2025-01-23T07:44:10.166Z
 genre: Life
 readTime: 5 min
-thumbnail: /images/a2.png
+thumbnail: /images/an-oversmart-boss-outsmarting-his-employee-in-an-1990s-indian-office-setting.jpg
 ---
 A Boss is a Boss 
 
