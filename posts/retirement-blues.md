@@ -3,7 +3,7 @@ title: Retirement Blues
 date: 2024-12-29T21:27:55.585Z
 genre: LIFE
 readTime: 4min
-thumbnail: /images/a2.png
+thumbnail: /images/retirement-blues.jpg
 ---
 <!--\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
