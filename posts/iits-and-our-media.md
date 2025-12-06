@@ -3,7 +3,7 @@ title: IITs and Our Media
 date: 2025-01-30T05:51:46.993Z
 genre: "Life "
 readTime: "5 min "
-thumbnail: /images/chatgpt-image-nov-16-2025-06_37_57-pm.png
+thumbnail: /images/life-iitsandourmedia.png
 ---
 IITs and Our Media
 
