@@ -3,7 +3,7 @@ title: "A Boss is a Boss "
 date: 2025-01-23T07:44:10.166Z
 genre: Life
 readTime: 5 min
-thumbnail: /images/chatgpt-image-nov-16-2025-06_51_24-pm.png
+thumbnail: /images/life-abossisaboss.png
 ---
 A Boss is a Boss 
 
