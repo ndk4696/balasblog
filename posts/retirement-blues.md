@@ -3,7 +3,7 @@ title: Retirement Blues
 date: 2024-12-29T21:27:55.585Z
 genre: LIFE
 readTime: 4min
-thumbnail: /images/chatgpt-image-nov-16-2025-06_24_18-pm.png
+thumbnail: /images/life-retirementblues.png
 ---
 <!--\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
