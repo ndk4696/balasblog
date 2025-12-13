@@ -1,7 +1,7 @@
 ---
 title: Retirement Blues
 date: 2024-12-29T21:27:55.585Z
-genre: LIFE
+genre: Life
 readTime: 4min
 thumbnail: /images/life-retirementblues.png
 ---
