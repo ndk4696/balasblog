@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="/image/webicon.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Articles – Bala's Blog</title>
+
+    <!-- Same CSS + fonts as home -->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/jdo3lpn.css" />
+  </head>
+  <!-- special class so we can give this page a dark background -->
+  <body class="all-articles-body">
+    
+    <!-- NAV BAR (same as home, but Articles is highlighted) -->
+    <nav class="nav-bar">
+      <div class="nav-title">
+        NANDURI BALA SUBRAHMANYAM
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="all-articles.html" class="nav-link active">Articles</a>
+      </div>
+
+      <!-- Hamburger button (only visible on mobile) -->
+      <button class="hamburger" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>   
+
+      <!-- Mobile dropdown menu -->
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="all-articles.html" class="mobile-link active">Articles</a>
+      </div> 
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="page-wrapper">
+      <section class="all-articles-section">
+         
+        <!-- Header / intro -->
+        <header class="all-articles-header">
+          <h1>All Articles</h1>
+          <p>Browse all my articles on Life, News, Music and Movies.</p>
+        </header>
+
+        <!-- Controls: search + filters -->
+        <section class="articles-controls">
+          <div class="articles-search-wrapper">
+            <input 
+              type="search" 
+              class="articles-search" 
+              placeholder="Search articles"
+              aria-label="Search articles"
+            />
+          </div>
+          <div class="articles-filters">
+            <button class="filter-chip active" data-genre="all">All</button>
+            <button class="filter-chip" data-genre="MUSIC">Music</button>
+            <button class="filter-chip" data-genre="MOVIES">Movies</button>
+            <button class="filter-chip" data-genre="LIFE">Life</button>
+            <button class="filter-chip" data-genre="NEWS">News</button>
+          </div>
+        </section>
+
+        <!-- Articles list -->
+        <section class="articles-list" id="articles-list">
+          <!-- TEMP STATIC EXAMPLE CARD – we will later replace with real data -->
+          <article class="article-row">
+            <img 
+            src="/images/article-retirement-blues-thumb.jpg" 
+            alt="Retirement Blues thumbnail" 
+            class="article-thumb"
+            />
+            <div class="article-info">
+                <h2 class="article-title">Retirement Blues</h2>
+                <div class="article-meta">
+                <span class="article-date">Dec 29, 2024</span>
+                <span class="bullet">•</span>
+                <span class="article-genre">LIFE</span>
+                <span class="bullet">•</span>
+                <span class="article-readtime">4 min read</span>
+              </div>
+              <p class="article-excerpt">
+                After my retirement, I started getting too many posts from friends and strangers about how to cope with retired life…
+              </p>
+            </div>
+          </article>
+
+          <!-- You can duplicate more example cards for now if you want -->
+        </section>
+      </section>
+    </main>
+
+    <!-- Same hamburger + Netlify Identity scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener("click", function() {
+            hamburger.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
+          });
+        }
+      });
+    </script>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
