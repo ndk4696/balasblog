@@ -5,8 +5,6 @@ genre: "Life "
 readTime: "5 min "
 thumbnail: /images/life-iitsandourmedia.png
 ---
-IITs and Our Media
-
 Few days ago, I read about an IITian Baba in Mahakumbh. The media was gaga over it with his photographs and stories about his education, childhood, family etc. Today,  there is another IITian Baba who is cooking food for the pilgrims. 
 I fail to understand why media is so excited any news related to IIT? Somehow media has developed a bias towards IITs.  True, they are the premier educational institutes in our country and only academically brilliant people can crack the entrance tests. Since the students are sharp in their studies, and the environment in side the institute is stimulating, those students would get the top jobs in the country or admission into top universities for higher studies. That doesn't mean that IITians only are the bright people. There are several other educational institutes and universities, which produce engineers who are also exceptionally meritorious. As per Google,  IITs produce about 25000 graduates in an year,  while the total Engineering graduates produced in the country are 1.5 million! The graduates from other than IITs are also occupying higher corporate positions.  In fact the present CEOs of Microsoft and Adobe,  who studied in India are not from IITs. In real life we all would have seen some IITians who are dull and uninspiring where as some people from other institutes who are quite innovative and intelligent. 
 
