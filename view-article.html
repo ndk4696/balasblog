@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="/image/webicon.png">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Article View</title>
+    
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/jdo3lpn.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="dark-theme">
+
+    <nav class="nav-bar">
+      <div class="nav-title">
+        NANDURI BALA SUBRAHMANYAM
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="all-articles.html" class="nav-link">Articles</a>
+      </div>
+
+      <button class="hamburger" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>   
+
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="all-articles.html" class="mobile-link">Articles</a>
+      </div> 
+    </nav>
+
+    <div class="article-reader-container">
+        
+        <header class="article-header">
+            <h1 id="article-title">Loading...</h1>
+            <div class="article-meta">
+                <span id="article-genre">Genre</span>
+                <span class="meta-divider">•</span>
+                <span id="article-time">Time</span>
+            </div>
+        </header>
+
+        <div class="article-content-wrapper">
+            <img id="article-img" class="article-float-image" src="" alt="Article Cover">
+            
+            <div id="article-body" class="markdown-body">
+                Loading content...
+            </div>
+        </div>
+
+        <div class="article-nav-footer">
+            <a id="prev-link" href="#" class="nav-btn prev-btn hidden">
+                <span class="arrow-icon">←</span>
+                <span id="prev-title">Previous</span>
+            </a>
+
+            <a id="next-link" href="#" class="nav-btn next-btn hidden">
+                <span id="next-title">Next</span>
+                <span class="arrow-icon">→</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="view-article.js"></script>
+    <script>
+        // Quick Mobile Menu Script incase it's missing
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

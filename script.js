@@ -199,4 +199,41 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('orientationchange', handleSmallHeightLandscape);
 
   
-  
+  // 1. Select Elements
+    const shareBtn = document.getElementById('shareBtn');
+    const sharePopup = document.getElementById('sharePopup');
+    const waLink = document.getElementById('waLink');
+    const tgLink = document.getElementById('tgLink');
+
+    // 2. Define the URL you want to share (Current Page)
+    // Since your latest post is hardcoded, you can hardcode the link here too if you want,
+    // OR just use window.location.href to share the homepage link.
+    const shareUrl = window.location.href; 
+    const shareText = "Check out this latest article by Nanduri Bala Subrahmanyam: ";
+
+    // 3. Update Social Links
+    waLink.href = `https://wa.me/?text=${encodeURIComponent(shareText + shareUrl)}`;
+    tgLink.href = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+
+    // 4. Toggle Popup on Click
+    shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevents the click from closing it immediately
+        sharePopup.classList.toggle('active');
+    });
+
+    // 5. Close Popup when clicking anywhere else
+    document.addEventListener('click', (e) => {
+        if (!sharePopup.contains(e.target) && e.target !== shareBtn) {
+            sharePopup.classList.remove('active');
+        }
+    });
+
+    // 6. Copy Link Function
+    function copyToClipboard() {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert("Link copied to clipboard!");
+            sharePopup.classList.remove('active'); // Close after copying
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }

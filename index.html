@@ -98,9 +98,23 @@
               </div>
               
               <!-- Post Buttons -->
-              <div class="post-buttons">
-                <button class="share-btn">Share</button>
-                <button class="comment-btn">Comment</button>
+              <div class="post-buttons" style="position: relative;">
+                <button id="shareBtn" class="share-btn">Share</button>
+                
+
+                <div id="sharePopup" class="share-popup">
+                   <div class="share-option" onclick="copyToClipboard()">
+                      <span class="share-icon">🔗</span> Copy Link
+                    </div>
+        
+                    <a id="waLink" href="#" target="_blank" class="share-option">
+                      <span class="share-icon">📱</span> WhatsApp
+                   </a>
+
+                  <a id="tgLink" href="#" target="_blank" class="share-option">
+                      <span class="share-icon">✈️</span> Telegram
+                 </a>
+                </div>
               </div>
             </article>
           </div>
@@ -116,7 +130,7 @@
             <div class="popular-right">
               <!-- Card 1 -->
               <div class="article-card">
-                <img src="/image/PArticle_1.png" alt="Article Image" class="card-image" />
+                <img src="/images/life-indralupthakam.png" alt="Article Image" class="card-image" />
                 <div class="card-content">
                   <!-- Text Wrapper -->
                   <div class="card-body">
@@ -130,12 +144,12 @@
                     </p>
                   </div>
                   <!-- Button -->
-                  <button class="read-now-btn">Read Now</button>
+                  <a href="view-article.html?post=ఇంద్రలుప్తకం.md" class="read-now-btn">Read Now</a>
                 </div>
               </div>
               <!-- Card 2 -->
               <div class="article-card">
-                <img src="/image/PArticle_2.png" alt="Article Image" class="card-image" />
+                <img src="/images/news-trump.png" alt="Article Image" class="card-image" />
                 <div class="card-content">
                   <!-- Text Wrapper -->
                   <div class="card-body">
@@ -146,23 +160,23 @@
                     </p>
                   </div>
                   <!-- Button -->
-                  <button class="read-now-btn">Read Now</button>
+                  <a href="view-article.html?post=ట్రంప్-గారి-పట్టాభిషేకమహోత్సవం.md" class="read-now-btn">Read Now</a>
                 </div>
               </div>
               <!-- Card 3 -->
               <div class="article-card">
-                <img src="/image/PArticle_3.png" alt="Article Image" class="card-image" />
+                <img src="/images/music-drusyakavyam.png" alt="Article Image" class="card-image" />
                 <div class="card-content">
                   <!-- Text Wrapper -->
                   <div class="card-body">
-                    <h3 class="card-title">దృశ్యకావ్యం</h3>
+                    <h3 class="card-title">దృశ్యకావ్యం-14</h3>
                     <div class="card-meta">Dec 11, 2024<span class="bullet">•</span>Music<span class="bullet">•</span>40sec read</div>
                     <p class="card-text">
                       మనుషులకి  నిజ  జీవితం కంటే నట జీవితం ఇస్టం. అందుకే నటించే వాళ్ళంటే ఇంకా ఇస్టం. నటనలో జీవించే...
                     </p>
                   </div>
                   <!-- Button -->
-                  <button class="read-now-btn">Read Now</button>
+                  <a href="view-article.html?post=దృశ్యకావ్యం-14.md" class="read-now-btn">Read Now</a>
                 </div>
               </div>
              <div class="view-all-container">

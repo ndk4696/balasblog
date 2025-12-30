@@ -39,6 +39,7 @@
     <!-- MAIN CONTENT -->
     <main class="page-wrapper">
       <section class="all-articles-section">
+                 
          
         <!-- Header / intro -->
         <header class="all-articles-header">
@@ -57,40 +58,31 @@
             />
           </div>
           <div class="articles-filters">
-            <button class="filter-chip active" data-genre="all">All</button>
-            <button class="filter-chip" data-genre="MUSIC">Music</button>
-            <button class="filter-chip" data-genre="MOVIES">Movies</button>
-            <button class="filter-chip" data-genre="LIFE">Life</button>
-            <button class="filter-chip" data-genre="NEWS">News</button>
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Music">Music</button>
+            <button class="filter-btn" data-filter="Movies">Movies</button>
+            <button class="filter-btn" data-filter="Life">Life</button>
+            <button class="filter-btn" data-filter="News">News</button>
           </div>
         </section>
 
-        <!-- Articles list -->
-        <section class="articles-list" id="articles-list">
-          <!-- TEMP STATIC EXAMPLE CARD – we will later replace with real data -->
-          <article class="article-row">
-            <img 
-            src="/images/article-retirement-blues-thumb.jpg" 
-            alt="Retirement Blues thumbnail" 
-            class="article-thumb"
-            />
-            <div class="article-info">
-                <h2 class="article-title">Retirement Blues</h2>
-                <div class="article-meta">
-                <span class="article-date">Dec 29, 2024</span>
-                <span class="bullet">•</span>
-                <span class="article-genre">LIFE</span>
-                <span class="bullet">•</span>
-                <span class="article-readtime">4 min read</span>
-              </div>
-              <p class="article-excerpt">
-                After my retirement, I started getting too many posts from friends and strangers about how to cope with retired life…
-              </p>
-            </div>
-          </article>
+              <div id="articles-list" class="articles-list">
+                
+              </div>      
+              
 
-          <!-- You can duplicate more example cards for now if you want -->
-        </section>
+            <!-- Year block -->
+            <div class="articles-grid">
+                    <!-- Article cards go here -->
+                     
+
+                    
+
+                     
+              
+            </div>
+
+        
       </section>
     </main>
 
@@ -121,5 +113,6 @@
         });
       }
     </script>
+    <script src="./all-articles.js"></script>
   </body>
 </html>

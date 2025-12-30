@@ -86,7 +86,7 @@ body {
 }
 
 .text-content h1 {
-  font-family: "sofia-pro-soft", sans-serif;
+  font-family: 'sofia-pro-soft', sans-serif;
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   color: #1a1a1a;
@@ -196,34 +196,64 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem 6rem;      /* Adjust as needed */
-  background-color: #1a1a1a;  /* Match your latest posts section background */
+  padding: 4rem 6rem;
+  background-color: #1a1a1a;
   position: sticky;
   top: 0;
-  z-index: 5;              /* Ensure it stays above other content */
-
+  z-index: 5;
+  width: 100%;             /* Ensures bar spans full width */
+  box-sizing: border-box;  /* Prevents padding from breaking width */
 }
 
-/* Title styling */
+/* Title container */
 .nav-title {
-  font-family: "Sofia-pro-soft", sans-serif;
+  /* Use lowercase 's' for the font name to ensure it loads */
+  font-family: "sofia-pro-soft", sans-serif; 
   font-weight: 800;
   font-size: clamp(1rem, 4vw, 1.5rem);
-  color: #eaeaea;         /* Change if desired */
+  color: #eaeaea;
   letter-spacing: 1px;
   line-height: 1.3;
 }
 
+/* THIS WAS MISSING: Fixes the purple link issue */
+.nav-title-link {
+  text-decoration: none;   /* Removes underline */
+  color: #eaeaea !important;          /* Inherits white color from parent */
+  font-family: "sofia-pro-soft", sans-serif;
+  font-weight: 800;    /* Inherits font from parent */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-title-link:hover {
+    color: #FFD66B !important;         /* Yellow on hover */
+}
+
 /* Nav links styling */
 .nav-links a {
-  font-family: "Sofia-pro-soft", sans-serif;
+  /* Use lowercase 's' here too */
+  font-family: "sofia-pro-soft", sans-serif; 
   font-weight: 500;
   font-size: clamp(1rem, 4vw, 1.5rem);
-  color: #777;         /* Default color for nav links */
+  color: #777;
   text-decoration: none;
-  margin-left: 2rem;    /* Space between links */
+  margin-left: 2rem;
   letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
+
+.nav-links a.active {
+    color: #eaeaea;
+    font-weight: 800; 
+}
+
+.nav-links a:hover {
+    color: #eaeaea;  /* Changes to Yellow (or use #eaeaea for white) */
+    font-weight: 500; /* Keeps it the same size = NO JITTER */
+}
+
+
 
 /* Home link override */
 .nav-links a.home {
@@ -291,14 +321,16 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 4rem 6rem;
+  max-width: 1280px;
+  margin: 0 auto;
    /* Adjust overall spacing as needed */
 }
 
 /* Sidebar (left column) */
 .post-sidebar {
   flex: 1;
-  min-width: 30vw;
-  font-family: "Sofia-pro-soft", sans-serif;
+  min-width: 20vw;
+  font-family: 'sofia-pro-soft', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 600;
   color: #FFD66B;
@@ -307,7 +339,7 @@ body {
 
 /* Post content (right column) */
 .post-content {
-  flex: 3;
+  flex: 4;
   font-family: 'Noto Sans Telugu', sans-serif;
 }
 
@@ -324,7 +356,7 @@ body {
 
 /* Post Meta Styling */
 .post-meta {
-  font-size: clamp(0.7rem, 1vw, 1rem);
+  font-size: clamp(1rem, 1vw, 1.5rem);
   color: #999;
   margin-bottom: 1rem;
   font-family: "Nunito", sans-serif;
@@ -364,7 +396,7 @@ body {
   display: inline-block;
   padding: 1rem 2rem;
   cursor: pointer;
-  font-family: 'Sofia-pro-soft', sans-serif;
+  font-family: 'sofia-pro-soft', sans-serif;
   font-weight: 700; /* Bold for the 3D effect */
   font-size: clamp(1rem, 3vw, 1.1rem);
   border-radius: 15px;
@@ -385,18 +417,7 @@ body {
   box-shadow: none;
 }
 
-/* Comment button: transparent background with eaeaea border */
-.post-buttons .comment-btn {
-  background-color: transparent;
-  border: 1px solid #CFCFCF; /* Outline */
-  color: #CFCFCF;
-  box-shadow: 0 0.3em 0 0 #b3b3b3; /* 3D shadow */
-}
 
-.post-buttons .comment-btn:active {
-  transform: translateY(5px);
-  box-shadow: none;
-}
 
 
 /* --------------------------Popular Articles Section Container------------------------------------- */
@@ -410,17 +431,18 @@ body {
   display: flex;
   flex-wrap: wrap;
   max-width: 1280px;
+  margin: 0 auto;
 }
 
 /* Left Column - Title */
 .popular-left {
   flex: 1;
-  min-width: 30vw;
+  min-width: 20vw;
   padding-top:0;
 }
 
 .popular-left h2 {
-  font-family: "Sofia-pro-soft", sans-serif;
+  font-family: 'sofia-pro-soft', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 600;
   color: #FFD66B;
@@ -431,7 +453,7 @@ body {
 
 /* Right Column - Cards */
 .popular-right {
-  flex: 3;
+  flex: 4;
   display: flex;
   flex-direction: column;
   gap: 5rem;  /* Spacing between cards */
@@ -456,7 +478,7 @@ body {
 /* Card Image */
 .card-image {
   width: 35%;
-  aspect-ratio: 1; /* Keep it square */
+  aspect-ratio: 2/3; /* Keep it square */
   object-fit: cover;
   
 }
@@ -471,8 +493,8 @@ body {
 
 /* Card Title */
 .card-title {
-  font-family: 'Sofia-pro-soft', sans-serif;  /* Adjust as needed */
-  font-size: 1.5rem;    /* Control title size */
+  font-family: 'sofia-pro-soft', sans-serif;  /* Adjust as needed */
+  font-size: 2.0rem;    /* Control title size */
   font-weight: 700;
   margin: 0;
   color: #CFCFCF;
@@ -481,9 +503,9 @@ body {
 /* Card Meta Data */
 .card-meta {
   font-family: 'Nunito', sans-serif;  /* Adjust as needed */
-  font-size: 0.9rem;    /* Control meta text size */
+  font-size: 1rem;    /* Control meta text size */
   font-weight: 500;
-  color: #555;
+  color: #888;
   margin: 0.5rem 0;
 }
 .bullet {
@@ -495,8 +517,8 @@ body {
 
 /* Card Teaser Text */
 .card-text {
-  font-family: 'Sofia-pro-soft', sans-serif;  /* Adjust as needed */
-  font-size: 1rem;      /* Control paragraph size */
+  font-family: 'sofia-pro-soft', sans-serif;  /* Adjust as needed */
+  font-size: 1.5rem;      /* Control paragraph size */
   font-weight: 400;
   color: #bbb;
   padding-bottom: 3rem;
@@ -520,7 +542,8 @@ body {
   border: 1px solid #CFCFCF; /* Outline */
   color: #CFCFCF;
   box-shadow: 0 0.3em 0 0 #b3b3b3; /* 3D shadow */
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  text-decoration: none;
 }
 
 .read-now-btn:hover {
@@ -541,20 +564,29 @@ body {
 }
 
 .view-all-btn {
+  position: relative;
+  display: inline-block;
   padding: 0.75rem 2rem;
-  background-color: #FFD66B;    /* Yellow background */
-  border: none;
-  border-radius: 10px;
-  color: #1a1a1a;             /* Dark text for contrast */
   font-family: 'Sofia-pro-soft', sans-serif;
   font-weight: 700;
   font-size: clamp(1rem, 3vw, 1.5rem);
+  border: none;
+  border-radius: 10px;
+  background-color: #FFD66B;
+  color: #1a1a1a;
   cursor: pointer;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
-  box-shadow: 
-  0 0.3em #c4a743;
+  box-shadow: 0 0.3em #c4a743;
+  text-decoration: none;
+
   
 }
+
+.view-all-btn:hover {
+  /* Optional: Slight brightness change on hover */
+  filter: brightness(1.05);
+}
+
 
 .view-all-btn:active {
   transform: translateY(8px);
@@ -575,13 +607,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   max-width: 1280px;
+  margin: 0 auto;
   
 }
 
 /* Left column: Heading */
 .notify-left {
   flex: 1;
-  min-width: 30vw;
+  min-width: 20vw;
   padding-left: 0rem;
   
   
@@ -600,7 +633,7 @@ body {
 
 /* Right column: Description and Form */
 .notify-right {
-  flex: 3;
+  flex: 4;
 }
 
 .notify-right p {
@@ -671,7 +704,7 @@ body {
 }
 
 .final-container {
-  max-width: 100vw;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -703,6 +736,58 @@ body {
   color: #eaeaea; /* Replace with your desired color */
 }
 
+/* --- SHARE POPUP STYLES --- */
+.share-popup {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 115%; /* Positions it just below the button */
+    left: 0;
+    
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    z-index: 100;
+    
+    /* Layout */
+    flex-direction: column;
+    gap: 5px;
+    min-width: 150px;
+}
+
+/* Show the popup when active */
+.share-popup.active {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+/* Individual Options */
+.share-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    color: #eaeaea;
+    text-decoration: none;
+    font-family: 'sofia-pro-soft', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.share-option:hover {
+    background-color: #333;
+    color: #FFD66B; /* Yellow text on hover */
+}
+
+/* Animation for smooth appearance */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* =========================================================== ALL ARTICLES PAGE ==================================================================== */
 
 /* Shared wrapper to match Home margins */
@@ -716,8 +801,7 @@ body {
   max-width: 1280px;
   margin: 4rem auto;
   padding: 0rem 6rem 4rem 6rem;
-  
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
@@ -744,7 +828,7 @@ body {
 
 /* Header */
 .all-articles-header h1 {
-  font-family: "Sofia-pro-soft", sans-serif;
+  font-family: 'sofia-pro-soft', sans-serif;
   font-size: clamp(2.4rem, 4vw, 4.8rem);
   font-weight: 800;
   color: #FFD66B;
@@ -752,10 +836,10 @@ body {
 }
 
 .all-articles-header p {
-  font-family: "Sofia-pro-soft", sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-family: 'sofia-pro-soft', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   color: #CFCFCF;
-  margin: 0 0 2rem 0;
+  margin: 0 0 3rem 0;
 }
 
 /* Controls: search + filters */
@@ -766,39 +850,44 @@ body {
   margin-bottom: 2.5rem;
 }
 
-.articles-search-wrapper {
-  max-width: 400px;
+.search-container {
+  max-width: 800px;      /* Wider search area */
+  margin: 0 auto 2rem auto;
 }
 
 .articles-search {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
+  padding: 2rem 2rem;
+  border-radius: 24px;
   border: none;
-  font-family: "Sofia-pro-soft", sans-serif;
-  font-size: 1rem;
+  font-family: 'sofia-pro-soft', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   color: #1a1a1a;
+  margin-bottom:3rem;
 }
 
 .articles-filters {
   display: flex;
+  justify-content: left;
+  gap: 1rem;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  margin-bottom: 3rem;
 }
 
-.filter-chip {
-  padding: 0.4rem 1rem;
+.filter-btn {
+  padding: 1rem 2rem;
   border-radius: 999px;
   border: 1px solid #555;
   background-color: transparent;
   color: #CFCFCF;
-  font-family: "Sofia-pro-soft", sans-serif;
-  font-size: 0.9rem;
+  font-family: 'sofia-pro-soft', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.filter-chip.active {
+.filter-btn.active,
+.filter-btn:hover {
   background-color: #FFD66B;
   color: #1a1a1a;
   border-color: #FFD66B;
@@ -838,11 +927,24 @@ body {
 }
 
 .article-title {
-  font-family: "Sofia-pro-soft", sans-serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  font-weight: 700;
+  font-family: 'sofia-pro-soft', sans-serif;
+  font-weight: 700;               
+  font-size: 1.5rem;                
   color: #eaeaea;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0; /* Added bottom spacing */
+  line-height: 1.3;
+  
+  /* --- FIX FOR OVERFLOW --- */
+  /* 1. Break long words (important for long names/Telugu text) */
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  
+  /* 2. Limit to 2 lines (Optional: prevents card from getting too tall) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .article-meta {
@@ -855,13 +957,399 @@ body {
 }
 
 .article-excerpt {
-  font-family: "Sofia-pro-soft", sans-serif;
+  font-family: 'sofia-pro-soft', sans-serif;
   font-size: 1rem;
   color: #bbb;
   margin: 0;
   text-align: justify;
 }
 
+/* ===============================
+   Year / Month Collapsible Styles
+================================ */
+
+.year-group {
+  margin-top: 4rem;
+  margin-bottom:3rem;
+}
+
+.month-group {
+  margin-top: 4rem;      /* ADJUST HERE: Increase for more gap between months */
+  margin-bottom: 4rem;
+}
+
+.year-toggle,
+.month-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #f5f5f5;
+  font-family: 'sofia-pro-soft', sans-serif;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  cursor: pointer;
+  
+}
+
+.year-toggle {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 140px;       /* Adjust this if it hits your navbar (Navbar is approx 120-140px tall) */
+  z-index: 3;       /* Sits above content but below navbar (if navbar is z-index 5) */
+  background-color: #1a1a1a; /* Needed so text doesn't scroll behind the transparent letters */
+  margin-top: 0;
+}
+
+
+.month-toggle {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #FFD66B;
+  position: sticky;
+}
+
+.year-icon,
+.month-icon {
+  transition: transform 0.25s ease;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    border-radius: 100em;
+    background: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 24 24' width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' fill='%231a1a1a'/%3e%3c/svg%3e") no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    opacity: 1; 
+    display: block; /* Ensures it shows up */
+}
+
+/* collapsed by default */
+/* =========================================
+   FINAL CARD DESIGN (Edge-to-Edge Image)
+   ========================================= */
+
+/* --- GRID CONTAINER --- */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Cards per row */
+  
+  /* INCREASED GAP: Makes cards narrower and adds space between them */
+  gap: 3rem; 
+  
+  padding: 1rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- INDIVIDUAL CARD (The Box) --- */
+a.article-row {
+  display: flex;
+  flex-direction: column;         
+  background-color: #1a1a1a;      
+  border: 2px solid #404040;      
+  border-radius: 12px;            
+  
+  /* REMOVED PADDING: Image will now touch the border */
+  padding: 24px;          
+  align-items: center;
+  overflow: hidden;               /* Clips content at rounded corners */
+  text-decoration: none;          
+  color: inherit;                 
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* --- HOVER EFFECT --- */
+a.article-row:hover {
+  box-shadow: 0 0 10px #FFD66B; 
+  transform: translateY(-2px); 
+}
+
+/* --- THUMBNAIL --- */
+.article-thumb {
+  width: 100%;                    /* Fills the card width exactly */
+  height: auto;
+  aspect-ratio: 2 / 3;            /* Portrait Aspect Ratio */
+  object-fit: cover;              /* Crops slightly to fill without distorting */
+  
+  /* Remove border radius so it fits the card corners perfectly */
+  border-radius: 8;               
+  display: block;                 
+  margin: 0;
+                    
+}
+
+/* --- TEXT CONTENT --- */
+.article-info {
+  width: 100%;                    
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  
+  /* Text Padding: Gives text breathing room. 
+     If you strictly want text to touch the border like the image, set this to 0. */
+  padding: 16px;                  
+  
+  box-sizing: border-box;
+  text-align: left;               
+}
+
+.article-title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;               
+  font-size: clamp(1rem, 4vw, 1.6rem);             
+  color: #FFD66B;  
+  margin: 0;
+  line-height: 1.3;
+  /* --- FIX FOR OVERFLOW --- */
+  /* 1. Break long words (important for long names/Telugu text) */
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  
+  /* 2. Limit to 2 lines (Optional: prevents card from getting too tall) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.article-excerpt {
+  font-family: "Noto Sans Telugu", sans-serif;
+  font-weight: 400;               
+  font-size: clamp(1rem, 4vw, 1.2rem);                  
+  color: #cfcfcf;                 
+  margin: 0;
+  text-align: left;               
+  line-height: 1.5;
+  
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1280px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 2rem; /* Slightly smaller gap on tablets */
+  }
+}
+
+@media (max-width: 741px) {
+  .articles-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}
+
+/* active states (JS later) */
+.year-group.open .months-container {
+  display: block;
+}
+
+.month-group.open .articles-grid {
+  display: block;
+}
+
+/* =========================================
+   VIEW ARTICLE PAGE (Refined Layout)
+   ========================================= */
+
+/* Dark Background for the whole page */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #eaeaea;
+    margin:0 !important;
+    width: 100%;
+}
+
+
+/* Hamburger button and mobile menu - hidden by default */
+.hamburger,
+.mobile-menu {
+  display: none;
+}
+
+/* Centered Container (Like a book page) */
+.article-reader-container {
+    max-width: 1080px;      /* Restricts width so lines aren't too long */
+    margin: 0 auto;         /* Centers the container */
+    padding: 2rem;
+    padding-top: 2rem;
+    min-height: 80vh;
+}
+
+/* --- HEADER --- */
+.article-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #333; /* Subtle line under title */
+    padding-bottom: 1.5rem;
+}
+
+#article-title {
+    font-family: "Nunito", sans-serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    color: #FFD66B;         /* Yellow Title */
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+}
+
+.article-meta{
+  font-family: "Nunito", sans-serif;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-weight: 700;
+   color: #fcfcfc;         /* Yellow Title */
+
+}
+
+/* --- META DATA SPACING (Life • 2Min) --- */
+.meta-divider {
+    color: #888;       /* Optional: Make the dot yellow */
+    margin: 0 12px;       /* Adds the requested space */
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+/* --- NAVBAR TITLE LINK --- */
+/* Makes the name clickable and look correct */
+
+
+/* --- IMAGE (Floats to the Right) --- */
+.article-float-image {
+    float: right;           /* Puts image on the right */
+    width: 55%;             /* Takes up roughly half the width */
+    max-width: 650px;       /* Never wider than 450px */
+    max-height: 60vh;   
+    border-radius: 24px;    /* Ensures it fits on your screen vertically */
+    
+    margin-left: 3rem;    /* Gap between Text and Image */
+    margin-bottom: 2rem;  /* Gap below image */
+    
+    
+    
+    
+}
+
+/* --- TEXT BODY --- */
+#article-body {
+     font-family: "Noto Sans Telugu", sans-serif;
+    color: #cfcfcf;            /* Soft white text */
+    line-height: 1.8;       /* Good reading spacing */
+    font-size: clamp(1rem, 4vw, 1.8rem);     
+    text-align: justify;    /* Requirement: Justified Text */
+    
+    /* This ensures the text wraps around the floated image */
+    display: block; 
+}
+
+/* Markdown Elements Spacing */
+#article-body p { margin-bottom: 1.5rem; }
+#article-body h2 { color: #fff; margin-top: 2rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem;}
+
+/* --- NAVIGATION FOOTER --- */
+.article-nav-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    gap: 1rem;
+}
+
+/* Base Button Style (Layout & Font) */
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    
+    text-decoration: none;
+    font-family: 'Noto Sans Telugu', 'sofia-pro-soft', sans-serif; 
+    font-weight: 700;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    
+    cursor: pointer;
+    transition: all 0.2s ease;
+    max-width: 45%; 
+}
+
+/* Ensure text doesn't overflow */
+.nav-btn span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- PREVIOUS BUTTON: Outline Style (Like current) --- */
+.prev-btn {
+    background-color: transparent;
+    border: 1px solid #CFCFCF;
+    color: #CFCFCF;
+    box-shadow: 0 0.3em 0 0 #b3b3b3; /* 3D Shadow */
+}
+
+.prev-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    
+}
+
+.prev-btn:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+/* --- NEXT BUTTON: Filled Style (Like Share button) --- */
+.next-btn {
+    background-color: #eaeaea;    /* White Background */
+    border: 1px solid #eaeaea;
+    color: #1a1a1a;               /* Dark Text */
+    box-shadow: 0 0.3em 0 0 #999; /* Darker Shadow */
+}
+
+.next-btn:hover {
+    background-color: #fff;       /* Brighter white on hover */
+    
+}
+
+.next-btn:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+/* Icons */
+.arrow-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Utility */
+.hidden { display: none; }
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 741px) {
+    /* On mobile, stack them: Image Top, Text Bottom */
+    .article-float-image {
+        float: none;        /* Disable float */
+        display: block;
+        width: 100%;        /* Full width */
+        max-width: 100%;
+        margin: 0 0 2rem 0; /* Margin bottom only */
+    }
+    
+    .article-reader-container {
+        padding: 1.5rem;
+    }
+
+    #article-title { font-size: 2rem; }
+}
 
 /* ===== RESPONSIVE STYLING ===== */
 
@@ -956,7 +1444,7 @@ body {
   }
   
   .nav-title{
-    font-size: (0.5rem, 2vw, 1.5rem)  !important ;
+    font-size: clamp(0.5rem, 2vw, 1.5rem)  !important;
   }
   .nav-links {
     font-size: clamp(0.5rem, 2vw, 1.5rem);
@@ -1240,7 +1728,7 @@ body {
   
   .mobile-menu a {
     padding: 1rem;
-    font-family: 'Sofia-pro-soft', sans-serif;
+    font-family: 'sofia-pro-soft', sans-serif;
     color: #eaeaea; /* Text color for mobile menu links */
     text-decoration: none;
     border-bottom: 1px solid #333; /* Optional border between links */
