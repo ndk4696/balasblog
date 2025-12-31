@@ -109,7 +109,13 @@ body {
 }
 .tagline .bullet {
   font-size: 12px;
-  vertical-align: middle;
+  display: inline-block;       /* Allows precise movement */
+  vertical-align: middle;      /* Base vertical alignment */
+  font-size: 10px;             /* Adjust size of the dot */
+  margin: 0 12px;              /* EQUAL spacing: 12px Left & 12px Right */
+  position: relative;          
+  top: -2px;                   /* Nudges the dot UP to look perfectly centered */
+  color: #1a1a1a;              /* Ensures color matches text */
 }
 
 /* SCROLL ANIMATION SECTION */
