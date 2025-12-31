@@ -788,6 +788,78 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.share-custom-icon {
+    width: 20px;         /* Sets a standard icon width */
+    height: 20px;        /* Sets a standard icon height */
+    object-fit: contain; /* Ensures the image doesn't get squished/distorted */
+    vertical-align: middle; /* Aligns the icon perfectly with the text */
+    margin-right: 8px;   /* Adds a small gap between the icon and the word */
+    display: inline-block;
+}
+
+/* --- THANK YOU POPUP --- */
+.thankyou-popup {
+    display: none;        /* Hidden by default */
+    position: fixed !important; /* Force fixed positioning */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;    /* Full width of browser window */
+    height: 100vh !important;   /* Full height of browser window */
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2147483647 !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.thankyou-popup.active {
+    display: flex; /* Show when active */
+    position: fixed;
+    animation: fadeIn 0.3s ease;
+}
+
+.thankyou-content {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+
+
+.thankyou-content h3 {
+    font-family: 'sofia-pro-soft', sans-serif;
+    color: #FFD66B;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+.thankyou-content p {
+    font-family: 'Nunito', sans-serif;
+    color: #eaeaea;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.back-home-btn {
+    background-color: #eaeaea;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-family: 'sofia-pro-soft', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.back-home-btn:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
 /* =========================================================== ALL ARTICLES PAGE ==================================================================== */
 
 /* Shared wrapper to match Home margins */

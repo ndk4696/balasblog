@@ -108,11 +108,11 @@
                     </div>
         
                     <a id="waLink" href="#" target="_blank" class="share-option">
-                      <span class="share-icon">📱</span> WhatsApp
+                      <img src="./image/whatsapp-logo.png" alt="Copy" class="share-custom-icon"> WhatsApp
                    </a>
 
                   <a id="tgLink" href="#" target="_blank" class="share-option">
-                      <span class="share-icon">✈️</span> Telegram
+                      <img src="./image/telegram-logo.png" alt="Copy" class="share-custom-icon"> Telegram
                  </a>
                 </div>
               </div>
@@ -187,34 +187,43 @@
         </section>
         <!--Notification section-->
         <section class="notify-section">
-          <div class="notify-container">
-            <!-- Left Column: Heading -->
-            <div class="notify-left">
-              <h2>Get notified</h2>
-            </div>
-            <!-- Right Column: Description & Form -->
-            <div class="notify-right">
-              <p>
-                I can send you an email whenever I upload a new article so that you can come back here and read it. 
-                Just share your email ID with me.
-              </p>
-              <div class="notify-form">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  class="notify-input"
-                />
-                <button class="notify-btn">Notify Me</button>
-              </div>
-            </div>
-          </div>
-        </section>
+  <div class="notify-container">
+    <div class="notify-left">
+      <h2>Get notified</h2>
+    </div>
+    <div class="notify-right">
+      <p>
+        I can send you an email whenever I upload a new article so that you can come back here and read it. 
+        Just share your email ID with me.
+      </p>
+      
+      <form id="notifyForm" class="notify-form">
+        
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Your email address" 
+          class="notify-input"
+          required
+        />
+
+        <input type="hidden" name="_next" value="https://ndk4696.github.io/balasblog/">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit" class="notify-btn">Notify Me</button>
+      </form>
+      
+      
+    </div>
+  </div>
+</section> 
         <section class="final-section">
           <div class="final-container">
             <h2>Connect with me!</h2>
-            <p>Want me to write anything for you? You can send me an email at <a href="mailto:balasblog@gmail.com">balasblog@gmail.com</a></p>
+            <p>Want me to write anything for you? You can send me an email at <a href="mailto:balasblogs@gmail.com">balasblogs@gmail.com</a></p>
           </div>
         </section>
+       
         <script>
           document.addEventListener("DOMContentLoaded", function() {
             const hamburger = document.querySelector(".hamburger");
@@ -238,6 +247,14 @@
             });
           }
         </script>
+        <div id="thankYouPopup" class="thankyou-popup">
+  <div class="thankyou-content">
+    <h3>Thank You!</h3>
+    <p>You have been successfully added to the<br> notification list.</p>
+    <button id="closeThankYou" class="back-home-btn">Back to Home Page</button>
+  </div>
+</div>
+
         
           
   </body>

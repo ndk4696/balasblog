@@ -237,3 +237,80 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Failed to copy: ', err);
         });
     }
+
+	// --- NOTIFY FORM HANDLER ---
+document.addEventListener("DOMContentLoaded", function() {
+
+    // --- 1. POPUP RESCUE MISSION (The Fix) ---
+    // This moves the popup out of any restrictive containers 
+    // and places it directly in the body so 'position: fixed' works.
+    const popup = document.getElementById('thankYouPopup');
+    if (popup) {
+        document.body.appendChild(popup);
+    }
+
+    // --- 2. HAMBURGER MENU ---
+    try {
+        const hamburger = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener("click", function() {
+                hamburger.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
+        }
+    } catch (e) { console.log("Menu ignored"); }
+
+    // --- 3. NOTIFY FORM LOGIC ---
+    const notifyForm = document.getElementById('notifyForm');
+    const closeThankYou = document.getElementById('closeThankYou');
+
+    if (notifyForm) {
+        notifyForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            // Visual Feedback
+            const btn = notifyForm.querySelector('button');
+            const originalText = btn.textContent;
+            btn.textContent = "Sending...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+
+            const formData = new FormData(notifyForm);
+
+            // Send Data
+            fetch("https://formsubmit.co/ajax/balasblog@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // SUCCESS: Show Popup
+                const finalPopup = document.getElementById('thankYouPopup');
+                finalPopup.style.display = "flex"; // Force visible
+                
+                notifyForm.reset();
+                btn.textContent = originalText;
+                btn.disabled = false;
+                btn.style.opacity = "1";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Error connecting to email server.");
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
+        });
+    }
+
+    // --- 4. CLOSE POPUP ---
+    if (closeThankYou) {
+        closeThankYou.addEventListener('click', () => {
+            const finalPopup = document.getElementById('thankYouPopup');
+            finalPopup.style.display = "none";
+        });
+    }
+  });
+
+
+  
