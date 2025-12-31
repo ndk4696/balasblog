@@ -5,8 +5,6 @@ genre: Life
 readTime: 4min
 thumbnail: /images/life-retirementblues.png
 ---
-<!--StartFragment-->
-
 After my retirement, I started getting too many posts from friends and strangers through WhatsApp and other media. All these are about how to cope up with retirement, how to maintain relationships, how to keep  good health, what are the deceases likely to attack, their remedies, how it is likely that due to retirement people may get into depression etc etc. In fact after going through all these posts, I have gone into depression. These posts create so much negative feelings that I thought I have come to the end of my present life and waiting for reincarnation. Till few weeks ago I was the most active person doing a stressful job successfully and how suddenly I would become old and a burden to the family and society?  
 
 Somehow, wisdom dawned on me and I myself have formulated success mantras for a peaceful and successful retired life. Go through if you feel like.
@@ -24,6 +22,4 @@ Somehow, wisdom dawned on me and I myself have formulated success mantras for a 
 8. Don't spend much time with older people who keep boasting about their achievements. This is a waste of time. Instead, try to spend more time with youngsters listening to them. It will make you feel young and keep you in touch with the present reality. Word of caution: Don't preach and bore them with your past achievements. If you do so, soon they will avoid you.
 9. Never lose your sense of humor and natural wit. It helps you keep going throughout your life. 
 
-(N.Bala Subrahmanyam)
-
-<!--EndFragment-->
+(నండూరి బాల సుబ్రహ్మణ్యం)

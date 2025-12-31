@@ -12,4 +12,4 @@ All of us are guided by destiny. People who are academically not so good could b
 
 Compared to the past, numerous opportunities are available in various fields and parents should realise that nothing is lost if their ward fails go to IIT. Our media too should stop glorifying IITs. In stead they should bring the success stories of non IITians too, which would definitely inspire the public and more and more success stories would emerge from them.   
 
-(N. Bala Subrahmanyam )
+(నండూరి బాల సుబ్రహ్మణ్యం)
