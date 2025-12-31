@@ -1225,8 +1225,7 @@ body.dark-theme {
 .article-float-image {
     float: right;           /* Puts image on the right */
     width: 55%;             /* Takes up roughly half the width */
-    max-width: 650px;       /* Never wider than 450px */
-    max-height: 60vh;   
+    max-width: 650px;       /* Never wider than 450px */   
     border-radius: 24px;    /* Ensures it fits on your screen vertically */
     
     margin-left: 3rem;    /* Gap between Text and Image */
