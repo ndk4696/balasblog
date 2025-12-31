@@ -1064,7 +1064,7 @@ body {
   padding: 1rem 0;
   cursor: pointer;
   top: 160px;
-  z-index: 2;       /* Sits above content but below navbar (if navbar is z-index 5) */
+  z-index: 3;       /* Sits above content but below navbar (if navbar is z-index 5) */
   background-color: #1a1a1a; /* Needed so text doesn't scroll behind the transparent letters */
   margin-top: 0;
 }  
