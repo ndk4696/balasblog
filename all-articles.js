@@ -8,40 +8,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Script loaded. Found buttons:", filterButtons.length);
 
-    // --- STEP 1: SETUP BUTTONS IMMEDIATELY ---
-    // We do this first so buttons are always clickable
+// --- STEP 1: SETUP BUTTONS ---
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
-            console.log("Button Clicked:", button.getAttribute("data-filter"));
-
-            // 1. Visual Update: Highlight the active button
+            
+            // 1. Visual Update: Highlight the active button immediately
             filterButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
 
-            // 2. Filter Logic
-            const category = button.getAttribute("data-filter");
-            
-            // Safety check: Do we have data yet?
-            if (allArticlesData.length === 0) {
-                console.warn("Data not loaded yet, cannot filter.");
-                return;
-            }
+            // 2. ADD BUFFER: Fade out the content to signal "Loading"
+            articlesListContainer.style.opacity = "0.3";
+            articlesListContainer.style.transition = "opacity 0.2s ease";
 
-            let filteredData;
-            if (category === "all") {
-                filteredData = allArticlesData;
-            } else {
-                // Filter by Genre (Case insensitive)
-                filteredData = allArticlesData.filter(article => 
-                    article.genre && article.genre.trim().toLowerCase() === category.trim().toLowerCase()
-                );
-            }
+            // 3. WAIT (The Buffer)
+            setTimeout(() => {
+                
+                // --- ACTUAL FILTERING LOGIC STARTS HERE ---
+                const category = button.getAttribute("data-filter");
+                
+                if (allArticlesData.length === 0) return;
 
-            // 3. Re-draw the screen
-            renderArticles(filteredData);
+                let filteredData;
+                if (category === "all") {
+                    filteredData = allArticlesData;
+                } else {
+                    // Filter by Genre (Case insensitive & trimmed)
+                    filteredData = allArticlesData.filter(article => 
+                        article.genre && article.genre.trim().toLowerCase() === category.trim().toLowerCase()
+                    );
+                }
+
+                // 4. Re-draw the screen
+                renderArticles(filteredData);
+                
+                // 5. Fade Back In (Show results)
+                articlesListContainer.style.opacity = "1";
+
+            }, 300); // <-- 300ms Delay (Adjust this number if you want it faster/slower)
         });
     });
-
     // --- STEP 2: FETCH DATA ---
     fetch("./posts.json")
       .then((response) => {
