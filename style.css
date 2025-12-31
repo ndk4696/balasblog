@@ -2011,11 +2011,32 @@ body.dark-theme {
   }
   .year-toggle {
     top: 80px; /* Reduce from 140px to ~80px so it sits higher */
+    z-index: 3;
+  }
+
+  .month-toggle {
+    top: 150px;
+    z-index: 3;
   }
   .nav-bar {
     z-index: 1000;
   }
-  
+  .prev-btn, 
+    .next-btn, 
+    .share-btn-yellow {
+        /* 1. Reduce text size slightly */
+        font-size: 12px !important; 
+
+        /* 2. Drastically reduce padding (Top/Bottom 8px, Left/Right 10px) */
+        padding: 8px 10px !important; 
+        
+        /* 3. Ensure they fit on one line */
+        width: auto;       /* Stop them from forcing a fixed width */
+        min-width: 0;      /* Allow them to shrink if the screen is tiny */
+        flex-shrink: 1;    /* Allow flexbox to squeeze them if needed */
+    }
 }
+
+
 
   
