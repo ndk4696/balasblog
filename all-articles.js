@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 // Filter by Genre (Case insensitive)
                 filteredData = allArticlesData.filter(article => 
-                    article.genre && article.genre.toLowerCase() === category.toLowerCase()
+                    article.genre && article.genre.trim().toLowerCase() === category.trim().toLowerCase()
                 );
             }
 

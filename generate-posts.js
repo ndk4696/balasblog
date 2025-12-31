@@ -5,7 +5,7 @@ const path = require('path');
 const postsDirectory = path.join(__dirname, 'posts');
 const outputFile = path.join(__dirname, 'posts.json');
 
-// Helper to parse the metadata between --- and ---
+// --- THE FIX IS HERE ---
 function parseFrontmatter(content) {
     const match = content.match(/^---([\s\S]*?)---/);
     if (!match) return null;
@@ -19,7 +19,13 @@ function parseFrontmatter(content) {
         if (colonIndex !== -1) {
             const key = line.slice(0, colonIndex).trim();
             let value = line.slice(colonIndex + 1).trim();
+            
+            // 1. Remove quotes
             value = value.replace(/^"|"$/g, '');
+            
+            // 2. CRITICAL FIX: Trim again to remove spaces that were inside the quotes
+            value = value.trim(); 
+            
             metadata[key] = value;
         }
     });
@@ -33,26 +39,21 @@ function getExcerpt(content, title) {
     let body = content.replace(/^---[\s\S]*?---/, '').trim();
 
     // 2. CHECK: Does "StartFragment" exist?
-    // If yes, we strictly take everything AFTER it.
     if (body.includes("StartFragment")) {
-        // Split by "StartFragment" and take the second part
         const parts = body.split("StartFragment");
         if (parts.length > 1) {
-            // Join the rest back together (in case StartFragment appears twice)
             body = parts.slice(1).join(" ");
         }
     }
 
-    // 3. Remove the immediate closing comment arrow "-->" if it exists
-    // (Because usually StartFragment is inside )
+    // 3. Remove closing comment arrow
     body = body.replace(/-->/g, '');
 
-    // 4. Remove basic HTML tags (like <p>, <xml>) so they don't show up in text
-    // We use new RegExp to be safe
+    // 4. Remove basic HTML tags
     const tagRegex = new RegExp('<[^>]*>', 'g');
     body = body.replace(tagRegex, ' ');
 
-    // 5. Remove leftover brackets just in case
+    // 5. Remove leftover brackets
     body = body.replace(/[<>]/g, '');
 
     // 6. Split into lines to remove duplicate title
@@ -63,7 +64,6 @@ function getExcerpt(content, title) {
         const firstLine = lines[0].trim().toLowerCase().replace(/^[#\s*]+/, '').replace(/[*]+$/, '');
         const cleanTitle = title.trim().toLowerCase();
 
-        // If first line matches title, remove it
         if (firstLine === cleanTitle || firstLine.includes(cleanTitle)) {
             lines.shift();
         }
@@ -106,10 +106,7 @@ function generatePosts() {
                     genre: metadata.genre || "General",
                     readTime: metadata.readTime || "1 min",
                     image: metadata.thumbnail || "/image/webicon.png", 
-                    
-                    // Call the cleaner function
                     excerpt: getExcerpt(content, title), 
-                    
                     contentUrl: `view-article.html?post=${filename}` 
                 });
             }
