@@ -92,4 +92,42 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error(err);
             document.getElementById("article-body").innerHTML = "<p>Error loading content.</p>";
         });
+
+        // --- SHARE BUTTON LOGIC ---
+    const shareBtn = document.getElementById('shareBtn');
+    const sharePopup = document.getElementById('sharePopup');
+    const waLink = document.getElementById('waLink');
+    const tgLink = document.getElementById('tgLink');
+
+    if (shareBtn && sharePopup) {
+        // 1. Generate dynamic links based on current page URL
+        const currentUrl = window.location.href;
+        const shareText = "Read this article: ";
+
+        if (waLink) waLink.href = `https://wa.me/?text=${encodeURIComponent(shareText + currentUrl)}`;
+        if (tgLink) tgLink.href = `https://t.me/share/url?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(shareText)}`;
+
+        // 2. Toggle Popup
+        shareBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = sharePopup.style.display === 'flex';
+            sharePopup.style.display = isVisible ? 'none' : 'flex';
+        });
+
+        // 3. Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!sharePopup.contains(e.target) && e.target !== shareBtn) {
+                sharePopup.style.display = 'none';
+            }
+        });
+    }
+
+    // 4. Global Copy Function (if not already in script)
+    window.copyToClipboard = function() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert("Link copied to clipboard!");
+            if (sharePopup) sharePopup.style.display = 'none';
+        }).catch(err => console.error('Failed to copy:', err));
+    };
+        
 });

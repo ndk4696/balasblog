@@ -1426,6 +1426,40 @@ body.dark-theme {
     #article-title { font-size: 2rem; }
 }
 
+/* --- YELLOW SHARE BUTTON (Matches 'View All' style) --- */
+.share-btn-yellow {
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-family: 'Sofia-pro-soft', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    border: none;
+    border-radius: 10px;
+    background-color: #FFD66B;  /* Yellow */
+    color: #1a1a1a;            /* Dark Text */
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 0.3em #c4a743; /* Darker Yellow Shadow */
+}
+
+.share-btn-yellow:hover {
+    filter: brightness(1.05);
+}
+
+.share-btn-yellow:active {
+    transform: translateY(4px);
+    box-shadow: 0 0.1em #c4a743; /* Pressed effect */
+}
+
+/* Ensure the popup opens UPWARDS since it's at the bottom of the page */
+.article-nav-footer .share-popup {
+    bottom: 120%; /* Pushes it above the button */
+    top: auto;    /* Override default top positioning */
+    left: 50%;
+    transform: translateX(-50%); /* Centers it horizontally */
+    min-width: 160px;
+}
 /* ===== RESPONSIVE STYLING ===== */
 
 /* Tablets & below */

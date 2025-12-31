@@ -57,6 +57,23 @@
                 <span class="arrow-icon">←</span>
                 <span id="prev-title">Previous</span>
             </a>
+            <div class="post-buttons" style="position: relative; margin: 0;">
+                <button id="shareBtn" class="share-btn-yellow">Share Article</button>
+            
+                <div id="sharePopup" class="share-popup" style="bottom: 115%; top: auto; left: 50%; transform: translateX(-50%);">
+                    <div class="share-option" onclick="copyToClipboard()">
+                        <span class="share-icon">🔗</span> Copy Link
+                </div>
+    
+                <a id="waLink" href="#" target="_blank" class="share-option">
+                    <img src="./image/whatsapp-logo.png" alt="WhatsApp" class="share-custom-icon"> WhatsApp
+                </a>
+
+                <a id="tgLink" href="#" target="_blank" class="share-option">
+                    <img src="./image/telegram-logo.png" alt="Telegram" class="share-custom-icon"> Telegram
+                </a>
+            </div>
+        </div>
 
             <a id="next-link" href="#" class="nav-btn next-btn hidden">
                 <span id="next-title">Next</span>
