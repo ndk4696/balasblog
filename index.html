@@ -224,38 +224,130 @@
           </div>
         </section>
        
-        <script>
-          document.addEventListener("DOMContentLoaded", function() {
-            const hamburger = document.querySelector(".hamburger");
-            const mobileMenu = document.querySelector(".mobile-menu");
-            
-            hamburger.addEventListener("click", function() {
-              hamburger.classList.toggle("active");
-              mobileMenu.classList.toggle("active");
+        <div id="thankYouPopup" class="thankyou-popup">
+      <div class="thankyou-content">
+        <h3>Thank You!</h3>
+        <p>You have been successfully added to the<br> notification list.</p>
+        <button id="closeThankYou" class="back-home-btn">Back to Home Page</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        // --- PART A: HAMBURGER MENU FIX ---
+        const hamburger = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener("click", function(e) {
+                e.stopPropagation(); // Prevents clicks from getting lost
+                hamburger.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+                console.log("Menu Toggled"); // Check console if this prints
             });
-          });
-        </script>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <script>
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", (user) => {
-              if (!user) {
-                window.netlifyIdentity.on("login", () => {
-                  document.location.href = "/admin/";
+
+            // Optional: Close menu when clicking a link
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove("active");
+                    mobileMenu.classList.remove("active");
                 });
-              }
+            });
+        }
+
+        // --- PART B: POPUP RESCUE ---
+        // Moves popup to the very end of the body to ensure it sits on top
+        const popup = document.getElementById('thankYouPopup');
+        if (popup) { document.body.appendChild(popup); }
+
+        // --- PART C: NOTIFY FORM LOGIC ---
+        const notifyForm = document.getElementById('notifyForm');
+        const closeThankYou = document.getElementById('closeThankYou');
+
+        if (notifyForm) {
+            notifyForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // STOP page reload
+
+                const btn = notifyForm.querySelector('button');
+                const originalText = btn.textContent;
+                btn.textContent = "Sending...";
+                btn.disabled = true;
+
+                const formData = new FormData(notifyForm);
+
+                fetch("https://formsubmit.co/ajax/balasblog@gmail.com", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Show Popup
+                    if(popup) {
+                        popup.style.display = "flex";
+                        setTimeout(() => popup.classList.add('active'), 10);
+                    }
+                    notifyForm.reset();
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Error connecting. Please try again.");
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                });
+            });
+        }
+
+        // --- PART D: CLOSE POPUP ---
+        if (closeThankYou && popup) {
+            closeThankYou.addEventListener('click', () => {
+                popup.style.display = "none";
+                popup.classList.remove('active');
+            });
+        }
+      });
+    </script>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
             });
           }
-        </script>
-        <div id="thankYouPopup" class="thankyou-popup">
-  <div class="thankyou-content">
-    <h3>Thank You!</h3>
-    <p>You have been successfully added to the<br> notification list.</p>
-    <button id="closeThankYou" class="back-home-btn">Back to Home Page</button>
-  </div>
-</div>
+        });
+      }
+    </script>
+    <script>
+    (function() {
+        // 1. Force-find the elements
+        const hamburger = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
 
-        
-          
+        // 2. Add a 'Global' click listener (Bulletproof method)
+        if (hamburger && mobileMenu) {
+            console.log("Hamburger Fix: Elements found. Activating...");
+
+            hamburger.onclick = function(e) {
+                // Prevent any other scripts from interfering
+                e.preventDefault(); 
+                e.stopPropagation();
+
+                // Toggle the class
+                hamburger.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+                
+                console.log("Hamburger Fix: Clicked! Active state:", hamburger.classList.contains("active"));
+            };
+        } else {
+            console.error("Hamburger Fix: Could not find .hamburger or .mobile-menu");
+        }
+    })();
+</script>
   </body>
 </html>

@@ -200,7 +200,7 @@ body {
   background-color: #1a1a1a;
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 1001;
   width: 100%;             /* Ensures bar spans full width */
   box-sizing: border-box;  /* Prevents padding from breaking width */
 }
@@ -1063,8 +1063,12 @@ body {
   align-items: center;
   padding: 1rem 0;
   cursor: pointer;
-  
-}
+  top: 160px;
+  z-index: 2;       /* Sits above content but below navbar (if navbar is z-index 5) */
+  background-color: #1a1a1a; /* Needed so text doesn't scroll behind the transparent letters */
+  margin-top: 0;
+}  
+
 
 .year-toggle {
   font-size: clamp(2.4rem, 4vw, 3rem);
@@ -1761,7 +1765,7 @@ body.dark-theme {
     border: none;
     cursor: pointer;
     position: relative;
-    z-index: 5; /* Adjust if needed */
+    z-index: 9999; /* Adjust if needed */
   }
   
   /* Hamburger icon bars */
@@ -1776,26 +1780,41 @@ body.dark-theme {
   }
   .hamburger.active .bar:nth-child(1) {
     transform: translateY(0px) rotate(45deg);
+    
   }
   
   .hamburger.active .bar:nth-child(2) {
     transform: translateY(-9px) rotate(-45deg);
+    z-index: 9999;
   }
 
 
     
   /* Mobile dropdown menu styles */
   .mobile-menu {
-    display: none; /* Hidden by default; toggled via JS */
+    display: none;
     flex-direction: column;
     position: absolute;
-    top: 100%; /* Place directly under the nav bar */
-    right: 10%;
-    left: 65%;
-    background-color: #111;  /* Dropdown background */
+    top: 100%;
+    
+    /* --- RESTORED & FIXED "BOX" STYLE --- */
+    right: 5%;         /* Keeps it on the right side */
+    left: auto;        /* Stop forcing it to start at 65% (This was the bug) */
+    width: 200px;      /* Give it a safe, solid width */
+    margin: 0;
+    /* ------------------------------------ */
+
+    background-color: #111;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 10px; /* Restores rounded corners on all sides */
+    z-index: 9999;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8); /* Strong shadow to pop against dark bg */
+    border: 1px solid #333; /* Subtle border to define edges */
   }
+
+  .latest-posts {
+    overflow: visible !important; 
+}
   
   .mobile-menu a {
     padding: 1rem;
@@ -1818,8 +1837,20 @@ body.dark-theme {
   
   /* When active, display the dropdown */
   .mobile-menu.active {
-    display: flex;
+    display: flex !important;
+    z-index: 9999;
   }
+  /* FORCE MENU CLICKABILITY */
+.hamburger {
+    position: relative; 
+    z-index: 2147483647 !important; /* Maximum Z-Index */
+    pointer-events: auto !important; /* Force clicks to register */
+    cursor: pointer;
+}
+
+.nav-bar {
+    z-index: 2147483640; /* Ensure the bar is just below the button */
+}
 
   .latest-posts{
     width: 100vw;
@@ -1938,6 +1969,13 @@ body.dark-theme {
     width: 100%;
     max-width: 100%;
   }
+  .year-toggle {
+    top: 80px; /* Reduce from 140px to ~80px so it sits higher */
+  }
+  .nav-bar {
+    z-index: 1000;
+  }
+  
 }
 
   
