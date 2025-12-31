@@ -1063,8 +1063,8 @@ body {
   align-items: center;
   padding: 1rem 0;
   cursor: pointer;
-  top: 160px;
-  z-index: 3;       /* Sits above content but below navbar (if navbar is z-index 5) */
+  top: 250px;
+  z-index: 2;       /* Sits above content but below navbar (if navbar is z-index 5) */
   background-color: #1a1a1a; /* Needed so text doesn't scroll behind the transparent letters */
   margin-top: 0;
 }  
@@ -1075,7 +1075,7 @@ body {
   font-weight: 600;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: sticky;
-  top: 140px;       /* Adjust this if it hits your navbar (Navbar is approx 120-140px tall) */
+  top: 160px;       /* Adjust this if it hits your navbar (Navbar is approx 120-140px tall) */
   z-index: 3;       /* Sits above content but below navbar (if navbar is z-index 5) */
   background-color: #1a1a1a; /* Needed so text doesn't scroll behind the transparent letters */
   margin-top: 0;
