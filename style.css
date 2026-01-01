@@ -1011,7 +1011,7 @@ body {
   font-size: clamp(0.8rem, 1rem, 1.5rem);                
   color: #eaeaea;
   padding-bottom: 4px; /* Added bottom spacing */
-  l  
+  
   /* --- FIX FOR OVERFLOW --- */
   /* 1. Break long words (important for long names/Telugu text) */
   word-wrap: break-word; 
