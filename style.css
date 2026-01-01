@@ -362,7 +362,7 @@ body {
 
 /* Post Meta Styling */
 .post-meta {
-  font-size: clamp(1rem, 1vw, 1.5rem);
+  font-size: clamp(0.8rem, 1vw, 1.5rem);
   color: #999;
   margin-bottom: 1rem;
   font-family: "Nunito", sans-serif;
@@ -380,7 +380,7 @@ body {
 
 /* Post Body Paragraphs */
 .post-body p {
-  font-family: 'Noto Sans Telugu', sans-serif;
+  font-family: 'Nunito', 'Noto Sans Telugu', sans-serif;
   font-weight: 400;        /* Paragraph font weight */
   font-size: clamp(1.25rem, 3vw, 1.5rem);        /* Paragraph font size */
   line-height: 1.6;
@@ -491,7 +491,7 @@ body {
 
 /* Card Content */
 .card-content {
-  padding: clamp(0.8rem, 2vw, 2rem);
+  padding: clamp(1rem, 2vw, 2rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -528,7 +528,7 @@ body {
   font-weight: 400;
   color: #bbb;
   padding-bottom: 3rem;
-  text-align: justify;
+  text-align: left;
 }
 
 
@@ -860,6 +860,7 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.2s;
+    font-size: clamp(0.8rem, 3vw, 1.5rem);
 }
 
 .back-home-btn:hover {
@@ -1324,7 +1325,7 @@ body.dark-theme {
     color: #cfcfcf;            /* Soft white text */
     line-height: 1.8;       /* Good reading spacing */
     font-size: clamp(1rem, 4vw, 1.8rem);     
-    text-align: justify;    /* Requirement: Justified Text */
+    text-align: left;    /* Requirement: Justified Text */
     
     /* This ensures the text wraps around the floated image */
     display: block; 
@@ -1917,7 +1918,7 @@ body.dark-theme {
   }
 
   .popular-articles-section{
-    padding: 2rem 2rem;
+    padding: 3rem 2rem;
   }
   .popular-container {
     flex-direction: column;
@@ -1980,7 +1981,7 @@ body.dark-theme {
 
   }
   .notify-btn {
-    font-size: 0.8rem;
+    font-size: clamp(0.8rem, 3vw, 1.5rem);
   }
 
   .final-section{
