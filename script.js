@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(notifyForm);
 
-            fetch("https://formsubmit.co/ajax/balasblog@gmail.com", {
+            fetch("https://formsubmit.co/ajax/balasblogs@gmail.com", {
                 method: "POST",
                 body: formData
             })
