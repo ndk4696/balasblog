@@ -1008,11 +1008,10 @@ body {
 .article-title {
   font-family: 'sofia-pro-soft', sans-serif;
   font-weight: 700;               
-  font-size: 1.5rem;                
+  font-size: clamp(0.8rem, 1rem, 1.5rem);                
   color: #eaeaea;
-  margin: 0 0 0.5rem 0; /* Added bottom spacing */
-  line-height: 1.3;
-  
+  padding-bottom: 4px; /* Added bottom spacing */
+  l  
   /* --- FIX FOR OVERFLOW --- */
   /* 1. Break long words (important for long names/Telugu text) */
   word-wrap: break-word; 
