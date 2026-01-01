@@ -860,7 +860,7 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.2s;
-    font-size: clamp(0.8rem, 3vw, 1.5rem);
+    font-size: clamp(0.8rem, 1vw, 1rem);
 }
 
 .back-home-btn:hover {
